@@ -1,0 +1,11 @@
+body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .edit-btn {
+    display: none;
+  }
+
+  tr:hover .edit-btn {
+    display: inline-flex;
+  }

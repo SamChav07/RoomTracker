@@ -7,14 +7,101 @@
     <title th:text="${tittle}">Mi Página</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /> <!-- Iconos -->
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/viewstyles.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
     
-    <div th:replace="fragments/board :: board">
+    <div th:replace="~{fragments/board :: board}">
         <div th:fragment="contenido">
             <h1>COORDINADOR</h1>
+            <div class="bg-[#F0F2F7] min-h-screen flex">
+                <!-- Main content -->
+                <main class="flex-1 p-6 max-w-full">
+            
+                    <!-- Tabs -->
+                    <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
+                        <button class="text-gray-400 py-2">C R E A R</button>
+                        <button class="text-indigo-600 border-b-2 border-indigo-600 py-2">L I S T A R</button>
+                        <button class="text-gray-400 py-2">E D I T A R</button>
+                    </nav>
+            
+                    <!-- Filters and Add/Delete buttons -->
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 space-y-3 sm:space-y-0">
+                        <div class="flex space-x-3">
+                            <input type="text" placeholder="Label" aria-label="Label filter"
+                                class="border border-gray-300 rounded-md text-xs text-gray-600 px-3 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600" />
+                            <button disabled
+                                class="bg-gray-300 text-gray-400 text-xs rounded-md px-3 py-1 cursor-not-allowed select-none">
+                                SEARCH
+                            </button>
+                        </div>
+                        <div class="flex gap-3">
+                            <button
+                                class="bg-indigo-600 text-white text-xs font-semibold rounded-md px-4 py-2 hover:bg-indigo-700 select-none"
+                                type="button">ADD ATTRIBUTE</button>
+                            <button
+                                class="bg-red-600 text-white text-xs font-semibold rounded-md px-4 py-2 hover:bg-red-700 select-none"
+                                type="button">DELETE ATTRIBUTE</button>
+                        </div>
+                    </div>
+            
+                    <!-- Table -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-left text-gray-600 border-separate border-spacing-y-2">
+                            <thead>
+                                <tr class="border-b border-gray-300">
+                                    <th class="py-2 font-semibold text-gray-900 w-[8%] text-center"></th>
+                                    <th class="py-2 font-semibold text-gray-900 w-[10%]">ID</th>
+                                    <th class="py-2 font-semibold text-gray-900 w-[20%]">NOMBRE COMPLETO</th>
+                                    <th class="py-2 font-semibold text-gray-900 w-[20%]">EMAIL</th>
+                                    <th class="py-2 font-semibold text-gray-900 w-[15%]">TELÉFONO</th>
+                                    <th class="py-2 font-semibold text-gray-900 w-[20%]">CARRERA</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 group">
+                                    <td class="py-3 px-2 text-center">
+                                        <input type="checkbox" checked class="w-4 h-4 text-indigo-600 rounded border-gray-300" />
+                                    </td>
+                                    <td class="py-3 px-2 font-semibold text-gray-900">01</td>
+                                    <td class="py-3 px-2">Carlos Rodríguez</td>
+                                    <td class="py-3 px-2">crodriguez@uamv.edu.ni</td>
+                                    <td class="py-3 px-2">8888-5555</td>
+                                    <td class="py-3 px-2">Ingeniería en Sistemas</td>
+                                    <td class="py-3 px-2 text-center">
+                                        <button
+                                            class="edit-btn bg-indigo-600 text-white text-xs font-semibold rounded-md px-3 py-1 hover:bg-indigo-700 transition duration-200">
+                                            EDIT
+                                        </button>
+                                    </td>
+                                </tr>
+            
+                                <!-- Row 2 -->
+                                <tr class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 group">
+                                    <td class="py-3 px-2 text-center">
+                                        <input type="checkbox" checked class="w-4 h-4 text-indigo-600 rounded border-gray-300" />
+                                    </td>
+                                    <td class="py-3 px-2 font-semibold text-gray-900">02</td>
+                                    <td class="py-3 px-2">María Pérez</td>
+                                    <td class="py-3 px-2">mperez@uamv.edu.ni</td>
+                                    <td class="py-3 px-2">8877-1122</td>
+                                    <td class="py-3 px-2">Contaduría Pública</td>
+                                    <td class="py-3 px-2 text-center">
+                                        <button
+                                            class="edit-btn bg-indigo-600 text-white text-xs font-semibold rounded-md px-3 py-1 hover:bg-indigo-700 transition duration-200">
+                                            EDIT
+                                        </button>
+                                    </td>
+                                </tr>
+            
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
         </div>
     </div>
     
