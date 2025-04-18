@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tittle}">Mi Página</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /> <!-- Iconos -->
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    
+    <div th:replace="fragments/board :: board">
+        <div th:fragment="contenido">
+            <h1>PROFESOR</h1>
+        </div>
+    </div>
+    
+    <script src="/js/script.js" defer></script>
+</body>
+
+</html>

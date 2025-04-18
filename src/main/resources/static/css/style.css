@@ -1,0 +1,10 @@
+.main-content {
+    flex-grow: 1;
+    padding: auto;
+    background-color: #ecf0f1;
+    overflow: auto;
+}
+
+.menu-espacio {
+    margin-top: 40px;
+}
