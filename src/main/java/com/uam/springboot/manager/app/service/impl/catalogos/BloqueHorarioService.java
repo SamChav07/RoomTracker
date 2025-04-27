@@ -1,7 +1,7 @@
 package com.uam.springboot.manager.app.service.impl.catalogos;
 
-import com.uam.springboot.manager.app.dto.catalogos.BloqueHorarioRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.BloqueHorarioResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.BloqueHorarioRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.BloqueHorarioResponseDTO;
 import com.uam.springboot.manager.app.mapper.catalogos.BloqueHorarioMapper;
 import com.uam.springboot.manager.app.model.catalogos.BloqueHorario;
 import com.uam.springboot.manager.app.repository.catalogos.BloqueHorarioRepository;

@@ -1,8 +1,8 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
 import jakarta.validation.Valid;
-import com.uam.springboot.manager.app.dto.catalogos.AsignaturaRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.AsignaturaResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.AsignaturaRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.AsignaturaResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.AsignaturaService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/asignaturas")
+@RequestMapping("/asignaturas")
 public class AsignaturaController {
     private final AsignaturaService service;
 
