@@ -1,5 +1,6 @@
 package com.uam.springboot.manager.app.model.catalogos;
 
+import com.uam.springboot.manager.app.model.Identifiable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -25,7 +26,7 @@ public class Asignatura extends Identifiable {
     private Integer capacidadSugerida;
 
     @ManyToMany
-    @JoinTable(name="asignatura_equipo",
+    @JoinTable(name="asignatura_equipo_ambiente",
             joinColumns = @JoinColumn(name="asignatura_id"),
             inverseJoinColumns = @JoinColumn(name="equipo_id"))
     private Set<EquipoAmbiente> equiposNecesarios;

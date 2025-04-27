@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tittle}">Mi Página</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Iconos -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/viewstyles.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div th:replace="~{fragments/board :: board}">
+        <div th:fragment="contenido">
+            <h1>Profesor</h1>
+            <div class="bg-[#F0F2F7] min-h-screen flex">
+                <!-- Main content -->
+                <main class="flex-1 p-6 max-w-full">
+
+                    <!-- Tabs -->
+                    <!-- Tabs -->
+                    <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
+                        <a th:href="@{/crear/profesor}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C
+                            R E A R</a>
+                        <a th:href="@{/listar/profesor}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L
+                            I S T A R</a>
+                        <a th:href="@{#}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">E
+                            D I T A R</a>
+                    </nav>
+
+                    <h1 class="text-2xl font-bold mb-4">Crear Profesor</h1>
+
+                    <!-- FORMULARIO PARA PROFESOR -->
+                    <form id="formularioProfesor">
+                        <!-- Campo para el nombre -->
+                        <div class="mb-4">
+                            <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                        </div>
+
+                        <!-- Campo para necesita accesibilidad -->
+                        <div class="mb-4">
+                            <label for="necesitaAccesibilidad" class="block text-sm font-medium text-gray-700">¿Necesita
+                                Accesibilidad?</label>
+                            <select id="necesitaAccesibilidad" name="necesitaAccesibilidad" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500">
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+
+                        <!-- Botón de creación -->
+                        <div class="flex justify-center">
+                            <button type="submit"
+                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
+                                Crear
+                            </button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script th:src="@{/js/script.js}" defer></script>
+    <script th:src="@{/js/profesor/create.js}" defer></script>
+
+</body>
+
+</html>

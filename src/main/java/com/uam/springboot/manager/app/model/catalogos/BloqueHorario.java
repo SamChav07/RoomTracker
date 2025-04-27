@@ -1,5 +1,6 @@
 package com.uam.springboot.manager.app.model.catalogos;
 
+import com.uam.springboot.manager.app.model.Identifiable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -11,7 +12,8 @@ import java.time.LocalTime;
 @Entity
 @Getter
 @Setter
-public class BloqueHorario extends Identifiable{
+@Table(name = "time_slots")
+public class BloqueHorario extends Identifiable {
 
     @Enumerated(EnumType.STRING)
     private DIASSEMANA dia;

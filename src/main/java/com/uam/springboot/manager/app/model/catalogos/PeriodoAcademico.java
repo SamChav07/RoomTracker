@@ -1,8 +1,9 @@
 package com.uam.springboot.manager.app.model.catalogos;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
+import com.uam.springboot.manager.app.model.Identifiable;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,10 +14,14 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-public class PeriodoAcademico extends Identifiable{
+@Table(name = "periodo_academico")
+public class PeriodoAcademico extends Identifiable {
 
     @Column(unique=true, nullable=false, length=12)
     private String codigo;
+
+    @NotBlank
+    private String descripcion;
 
     @NotNull
     private LocalDate fechaInicio;
@@ -26,5 +31,9 @@ public class PeriodoAcademico extends Identifiable{
 
     @Min(1)
     private Integer semanasTotales;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private TIPOSEMESTRE tiposemestre;
 
 }

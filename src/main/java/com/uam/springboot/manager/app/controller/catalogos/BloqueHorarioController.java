@@ -1,8 +1,8 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
 import jakarta.validation.Valid;
-import com.uam.springboot.manager.app.dto.catalogos.BloqueHorarioRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.BloqueHorarioResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.BloqueHorarioRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.BloqueHorarioResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.BloqueHorarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/bloques")
+@RequestMapping("/bloques")
 public class BloqueHorarioController {
     private final BloqueHorarioService service;
 

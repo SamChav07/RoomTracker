@@ -1,8 +1,8 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
 import jakarta.validation.Valid;
-import com.uam.springboot.manager.app.dto.catalogos.CarreraRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.CarreraResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.CarreraRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.CarreraResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.CarreraService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/carreras")
+@RequestMapping("/carreras")
 public class CarreraController {
     private final CarreraService service;
 

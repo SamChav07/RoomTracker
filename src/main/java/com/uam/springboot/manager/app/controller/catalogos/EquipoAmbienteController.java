@@ -1,8 +1,8 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
 import jakarta.validation.Valid;
-import com.uam.springboot.manager.app.dto.catalogos.EquipoAmbienteRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.EquipoAmbienteResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.EquipoAmbienteRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.EquipoAmbienteResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.EquipoAmbienteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/equipos")
+@RequestMapping("/equipos")
 public class EquipoAmbienteController {
 
     public EquipoAmbienteController(EquipoAmbienteService service) {

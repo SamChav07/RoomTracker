@@ -6,6 +6,6 @@ public record AsignaturaResponseDTO(
         Long id,
         String codigo,
         String nombre,
-        Integer capacidadSugeida,
+        Integer capacidadSugerida,
         Set<Long> equipoIds
 ) {}

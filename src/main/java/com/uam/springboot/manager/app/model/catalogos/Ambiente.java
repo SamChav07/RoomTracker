@@ -1,19 +1,22 @@
 package com.uam.springboot.manager.app.model.catalogos;
 
 
+import com.uam.springboot.manager.app.model.Identifiable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
-public class Ambiente extends Identifiable{
+@ToString
+public class Ambiente extends Identifiable {
 
     @NotBlank
     @Column(unique = true)
@@ -31,10 +34,10 @@ public class Ambiente extends Identifiable{
     @Enumerated(EnumType.STRING)
     private TIPOAMBIENTE tipoAmbiente;
 
-    @ManyToMany
-    @JoinTable(name="ambiente_equipo",
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name="ambiente_equipo_ambiente",
                 joinColumns = @JoinColumn(name="ambiente_id"),
                 inverseJoinColumns = @JoinColumn(name="equipo_id"))
-    private Set<EquipoAmbiente> equipos;
+    private Set<EquipoAmbiente> equiposAmbiente;
 
 }

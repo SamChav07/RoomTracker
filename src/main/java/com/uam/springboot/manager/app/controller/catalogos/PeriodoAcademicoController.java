@@ -1,8 +1,8 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
 import jakarta.validation.Valid;
-import com.uam.springboot.manager.app.dto.catalogos.PeriodoAcademicoRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.PeriodoAcademicoResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.PeriodoAcademicoRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.PeriodoAcademicoResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.PeriodoAcademicoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/periodos")
+@RequestMapping("/periodos")
 public class PeriodoAcademicoController {
     private final PeriodoAcademicoService service;
 
