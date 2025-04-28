@@ -5,9 +5,9 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record GrupoRequestDTO(
-        @NotBlank String nombre,
+        @NotBlank String codigo,
         @NotNull @Min(1)Integer numeroEstudiantes,
-        @NotNull Long ProfesorID,
+        @NotNull Long profesorId,
         @NotNull @Min(1) Integer numeroGrupo
         ) {
 }

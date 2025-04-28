@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.CarreraResponse
 import com.uam.springboot.manager.app.mapper.catalogos.CarreraMapper;
 import com.uam.springboot.manager.app.model.catalogos.Carrera;
 import com.uam.springboot.manager.app.repository.catalogos.CarreraRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

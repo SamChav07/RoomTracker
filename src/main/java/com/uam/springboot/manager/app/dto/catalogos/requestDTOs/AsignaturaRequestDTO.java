@@ -9,6 +9,8 @@ import java.util.Set;
 public record AsignaturaRequestDTO(
         @NotBlank String codigo,
         @NotBlank String nombre,
-        @Min(1) Integer capacidadSugeida,
-        @NotNull Set<Long> equipoIds
-) {}
+        @Min(1) Integer capacidadSugerida,
+        @NotNull Set<Long> equiposNecesariosIds
+){}
+
+

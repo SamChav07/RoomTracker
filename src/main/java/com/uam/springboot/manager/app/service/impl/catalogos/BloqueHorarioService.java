@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.BloqueHorarioRe
 import com.uam.springboot.manager.app.mapper.catalogos.BloqueHorarioMapper;
 import com.uam.springboot.manager.app.model.catalogos.BloqueHorario;
 import com.uam.springboot.manager.app.repository.catalogos.BloqueHorarioRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

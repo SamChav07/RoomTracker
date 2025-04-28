@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.UsuarioResponse
 import com.uam.springboot.manager.app.mapper.catalogos.UsuarioMapper;
 import com.uam.springboot.manager.app.model.catalogos.Usuario;
 import com.uam.springboot.manager.app.repository.catalogos.UsuarioRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

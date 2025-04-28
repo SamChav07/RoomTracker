@@ -24,5 +24,4 @@ public class Usuario extends Identifiable {
             inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id")
     )
     private Set<Rol> roles;
-    // … otros campos comunes
 }

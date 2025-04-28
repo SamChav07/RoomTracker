@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.EquipoAmbienteR
 import com.uam.springboot.manager.app.mapper.catalogos.EquipoAmbienteMapper;
 import com.uam.springboot.manager.app.model.catalogos.EquipoAmbiente;
 import com.uam.springboot.manager.app.repository.catalogos.EquipoAmbienteRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
     @Service

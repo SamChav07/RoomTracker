@@ -4,8 +4,8 @@ import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.AmbienteRequestD
 import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.AmbienteResponseDTO;
 import com.uam.springboot.manager.app.mapper.catalogos.AmbienteMapper;
 import com.uam.springboot.manager.app.model.catalogos.Ambiente;
-import com.uam.springboot.manager.app.repository.RepositoryRegistry;
 import com.uam.springboot.manager.app.repository.catalogos.AmbienteRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

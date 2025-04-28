@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.AsignaturaRespo
 import com.uam.springboot.manager.app.mapper.catalogos.AsignaturaMapper;
 import com.uam.springboot.manager.app.model.catalogos.Asignatura;
 import com.uam.springboot.manager.app.repository.catalogos.AsignaturaRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -6,12 +6,14 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Set;
 
 @Entity
 @Setter
 @Getter
+@ToString
 public class Asignatura extends Identifiable {
 
     @NotBlank

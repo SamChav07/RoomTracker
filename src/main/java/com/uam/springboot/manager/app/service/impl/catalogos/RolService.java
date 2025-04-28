@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.RolResponseDTO;
 import com.uam.springboot.manager.app.mapper.catalogos.RolMapper;
 import com.uam.springboot.manager.app.model.catalogos.Rol;
 import com.uam.springboot.manager.app.repository.catalogos.RolRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.PeriodoAcademic
 import com.uam.springboot.manager.app.mapper.catalogos.PeriodoAcademicoMapper;
 import com.uam.springboot.manager.app.model.catalogos.PeriodoAcademico;
 import com.uam.springboot.manager.app.repository.catalogos.PeriodoAcademicoRepository;
+import com.uam.springboot.manager.app.service.impl.CrudServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

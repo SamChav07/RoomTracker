@@ -18,5 +18,5 @@ public class Coordinador extends Identifiable {
 
     @OneToOne(optional=false)
     @JoinColumn(name="carrera_id")
-    private Carrera carreraCordinada;
+    private Carrera carreraCoordinada;
 }
