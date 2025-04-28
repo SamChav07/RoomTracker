@@ -1,7 +1,7 @@
 package com.uam.springboot.manager.app.service.impl.catalogos;
 
-import com.uam.springboot.manager.app.dto.catalogos.CarreraRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.CarreraResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.CarreraRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.CarreraResponseDTO;
 import com.uam.springboot.manager.app.mapper.catalogos.CarreraMapper;
 import com.uam.springboot.manager.app.model.catalogos.Carrera;
 import com.uam.springboot.manager.app.repository.catalogos.CarreraRepository;

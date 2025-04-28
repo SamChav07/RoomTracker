@@ -1,8 +1,8 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
 import jakarta.validation.Valid;
-import com.uam.springboot.manager.app.dto.catalogos.AmbienteRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.AmbienteResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.AmbienteRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.AmbienteResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.AmbienteService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/ambientes")
+@RequestMapping("ambientes")
 public class AmbienteController {
     private final AmbienteService service;
 

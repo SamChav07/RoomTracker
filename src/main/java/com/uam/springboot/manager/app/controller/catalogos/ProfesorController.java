@@ -1,8 +1,8 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
 import jakarta.validation.Valid;
-import com.uam.springboot.manager.app.dto.catalogos.ProfesorRequestDTO;
-import com.uam.springboot.manager.app.dto.catalogos.ProfesorResponseDTO;
+import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.ProfesorRequestDTO;
+import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.ProfesorResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.ProfesorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/profesores")
+@RequestMapping("/profesores")
 public class ProfesorController {
     private final ProfesorService service;
 
