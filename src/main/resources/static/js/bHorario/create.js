@@ -10,7 +10,7 @@ document.getElementById('formularioBloqueHorario').addEventListener('submit', as
     };
 
     try {
-        const response = await fetch('/api/bloques', {
+        const response = await fetch('/bloques', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

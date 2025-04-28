@@ -1,53 +1,64 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     cargarEquipos();
 });
 
-/**
- * Carga los equipos desde la API y los muestra en el formulario
- */
+// Cargar los equipos y llenar el <select>
 async function cargarEquipos() {
     try {
-        const response = await fetch('/api/equipos');
-        
+        const response = await fetch("/equipos");
+
         if (!response.ok) {
             throw new Error(`Error al cargar los equipos: ${response.status} ${response.statusText}`);
         }
 
         const equipos = await response.json();
-        const selectEquipo = document.getElementById('equipo');
+        const selectEquipo = document.getElementById("equipo");
 
-        // Añadir las opciones de equipos al select
+        selectEquipo.innerHTML = ''; // Limpiar el select primero
+
         equipos.forEach(equipo => {
-            const option = document.createElement('option');
-            option.value = equipo.id; // Suponiendo que el campo 'id' existe en los datos del equipo
-            option.textContent = equipo.codigo || 'Equipo desconocido'; // Asumiendo que 'nombre' es uno de los campos del equipo
-            option.textContent = equipo.descripcion || ' - '; // Asumiendo que 'nombre' es uno de los campos del equipo
+            const option = document.createElement("option");
+            option.value = equipo.id;
+            option.textContent = equipo.descripcion;
             selectEquipo.appendChild(option);
         });
+
     } catch (error) {
         console.error(error);
-        alert('❌ Error al cargar los equipos');
+        alert("❌ Error al cargar los equipos");
     }
 }
 
-/**
- * Maneja el envío del formulario para crear un ambiente
- */
+// Guardar el ambiente cuando envías el formulario
 document.getElementById('formularioAmbiente').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Evitar que se recargue la página
-
-    // Capturar los valores del formulario
-    const data = {
-        codigo: document.getElementById('codigo').value,
-        capacidad: parseInt(document.getElementById('capacidad').value),
-        estado: document.getElementById('estado').value,
-        tipoAmbiente: document.getElementById('tipo_ambiente').value,
-        accesible: document.getElementById('accesible').checked,
-        equipoIds: [parseInt(document.getElementById('equipo').value)] // Obtener el id del equipo seleccionado
-    };
+    event.preventDefault(); // Evitar recarga de página
 
     try {
-        const response = await fetch('/api/ambientes', {
+        const codigo = document.getElementById('codigo').value.trim();
+        const capacidad = parseInt(document.getElementById('capacidad').value.trim()) || null;
+        const estado = document.getElementById('estado').value.trim();
+        const tipoAmbiente = document.getElementById('tipo_ambiente').value.trim();
+        const accesible = document.getElementById('accesible').checked;
+        const equipoIdSeleccionado = parseInt(document.getElementById('equipo').value);
+
+        // Validación básica
+        if (!codigo || !estado || !tipoAmbiente || isNaN(capacidad)) {
+            alert('❗ Por favor completa todos los campos obligatorios');
+            return;
+        }
+
+        const data = {
+            codigo: codigo,
+            capacidad: capacidad,
+            estado: estado,
+            tipoAmbiente: tipoAmbiente,
+            accesible: accesible,
+            equipoIds: [equipoIdSeleccionado] // Lo enviamos como array
+        };
+
+        console.log('Datos que se enviarán:', data);
+
+        const response = await fetch('/ambientes', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,14 +67,13 @@ document.getElementById('formularioAmbiente').addEventListener('submit', async f
         });
 
         if (response.ok) {
-            // Si la respuesta es exitosa, muestra un mensaje de éxito y redirige
             alert('✅ Ambiente creado exitosamente');
-            window.location.href = '/listar/ambiente'; // Redirige a la lista de ambientes
+            window.location.href = '/listar/ambientes'; // Redirigir después de crear
         } else {
-            // Si la respuesta no es exitosa, muestra el error
             const errorData = await response.json();
             alert('❌ Error al crear el ambiente: ' + (errorData.message || 'Error desconocido'));
         }
+
     } catch (error) {
         console.error('Error:', error);
         alert('❌ Error en la solicitud: ' + error.message);

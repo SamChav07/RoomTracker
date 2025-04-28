@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function cargarProfesores() {
     try {
-        const response = await fetch('/api/profesores');
+        const response = await fetch('/profesores');
         
         if (!response.ok) {
             throw new Error(`Error al cargar los profesores: ${response.status} ${response.statusText}`);

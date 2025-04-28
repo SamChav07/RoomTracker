@@ -5,7 +5,7 @@ async function cargarusuarios() {
         const response = await fetch('/usuarios');
         
         if (!response.ok) {
-            throw new Error(`Error al cargar los usuarios: ${response.status} ${response.statusText}`);
+            throw new Error(`Error HTTP: ${response.status}`);
         }
 
         const usuarios = await response.json();

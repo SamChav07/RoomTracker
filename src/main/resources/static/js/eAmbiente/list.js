@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function cargarEquipos() {
     try {
-        const response = await fetch('/api/equipos');
+        const response = await fetch('/equipos');
         
         if (!response.ok) {
             throw new Error(`Error al cargar los equipos: ${response.status} ${response.statusText}`);

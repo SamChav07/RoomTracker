@@ -12,7 +12,7 @@ document.getElementById('formularioPeriodoAcademico').addEventListener('submit',
     };
 
     try {
-        const response = await fetch('/api/periodos', {
+        const response = await fetch('/periodos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

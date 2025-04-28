@@ -15,7 +15,7 @@ document.getElementById('formularioProfesor').addEventListener('submit', async f
     }
 
     try {
-        const response = await fetch('/api/profesores', {
+        const response = await fetch('/profesores', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

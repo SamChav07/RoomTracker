@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', cargarRoles);
 
 async function cargarRoles() {
     try {
-        const response = await fetch('/api/roles');
+        const response = await fetch('/roles');
         
         if (!response.ok) {
             throw new Error(`Error al cargar los roles: ${response.status} ${response.statusText}`);

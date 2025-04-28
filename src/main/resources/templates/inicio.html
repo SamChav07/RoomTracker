@@ -1,24 +1,104 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${tittle}">Mi Página</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" /> <!-- Iconos -->
-    <link rel="stylesheet" href="/css/style.css">
+    <title th:text="${title}">Inicio | ERP</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-gray-100 min-h-screen flex flex-col">
 
 <div th:replace="~{fragments/board :: board}">
     <div th:fragment="contenido">
-        <h1>INICIO</h1>
+
+        <!-- Encabezado -->
+        <header class="bg-white shadow p-6 mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">👋 Bienvenido, <span th:text="${nombreUsuario}">Usuario</span></h1>
+            <p class="text-gray-500 mt-2">Aquí puedes gestionar asignaciones, equipos y ambientes de forma eficiente.</p>
+        </header>
+
+        <!-- Contadores Estilo Ejecutivo Adaptado -->
+        <section class="bg-white shadow p-6 mb-6">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+
+                <!-- Usuarios -->
+                <div class="bg-white border border-gray-200 rounded-md p-4 shadow-sm flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-700" th:text="${totalUsuarios}">120</p>
+                        <p class="text-xs text-gray-500">Usuarios registrados</p>
+                    </div>
+                    <div class="text-blue-600 text-2xl">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+
+                <!-- Profesores -->
+                <div class="bg-white border border-gray-200 rounded-md p-4 shadow-sm flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-700" th:text="${totalProfesores}">42</p>
+                        <p class="text-xs text-gray-500">Profesores registrados</p>
+                    </div>
+                    <div class="text-orange-500 text-2xl">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+
+                <!-- Carreras -->
+                <div class="bg-white border border-gray-200 rounded-md p-4 shadow-sm flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-700" th:text="${totalCarreras}">15</p>
+                        <p class="text-xs text-gray-500">Carreras activas</p>
+                    </div>
+                    <div class="text-indigo-600 text-2xl">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+
+                <!-- Ambientes -->
+                <div class="bg-white border border-gray-200 rounded-md p-4 shadow-sm flex justify-between items-center">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-700" th:text="${totalAmbientes}">23</p>
+                        <p class="text-xs text-gray-500">Ambientes disponibles</p>
+                    </div>
+                    <div class="text-purple-600 text-2xl">
+                        <i class="fas fa-door-open"></i>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Gráfico falso / Placeholder -->
+        <section>
+            <div class="bg-white shadow p-6 mb-6">
+                <h2 class="text-xl font-bold text-gray-700 mb-4">📊 Actividad Reciente</h2>
+                <div class="h-64 bg-gradient-to-r from-blue-100 to-blue-300 rounded-lg flex items-center justify-center text-gray-400 text-lg italic">
+                    [Aquí podría ir un gráfico de actividad]
+                </div>
+            </div>
+        </section>
+
+        <!-- Accesos rápidos -->
+        <section class="px-6 mb-12">
+            <h2 class="text-xl font-bold text-gray-700 mb-4">🚀 Accesos Rápidos</h2>
+            <div class="flex flex-wrap gap-4">
+                <a href="/crear/asignacion" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">
+                    <i class="fas fa-plus mr-2"></i> Nueva Asignación
+                </a>
+                <a href="/listar/equipos" class="bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition">
+                    <i class="fas fa-desktop mr-2"></i> Ver Equipos
+                </a>
+                <a href="/listar/ambientes" class="bg-purple-500 text-white px-6 py-3 rounded-lg hover:bg-purple-600 transition">
+                    <i class="fas fa-building mr-2"></i> Ver Ambientes
+                </a>
+            </div>
+        </section>
+
     </div>
 </div>
 
 <script src="/js/script.js" defer></script>
 </body>
-
 </html>

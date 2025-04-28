@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function cargarCarreras() {
     try {
-        const response = await fetch('/api/carreras');
+        const response = await fetch('/carreras');
         
         if (!response.ok) {
             throw new Error(`Error al cargar las carreras: ${response.status} ${response.statusText}`);

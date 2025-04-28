@@ -66,6 +66,16 @@ public class MainController {
         return "Coordinador/listar_coordinador";
     }
 
+    @GetMapping("/crear/oLogistico")
+    public String showC_OperadorLogisticoPage(Model model) { // C R E A R - Operador Logistico
+        return "O_Logistico/crear_oLogistico";
+    }
+
+    @GetMapping("/listar/oLogistico")
+    public String showL_OperadorLogisticoPage(Model model) { // L I S T A R
+        return "O_Logistico/listar_oLogistico";
+    }
+
     @GetMapping("/crear/usuario")
     public String showC_UserPage(Model model) { // C R E A R - Usuario
         return "Usuario/crear_user";

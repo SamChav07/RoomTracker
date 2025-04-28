@@ -37,24 +37,24 @@
 
                     <h1 class="text-2xl font-bold mb-4">Crear Periodo Academico</h1>
 
-                    <!-- FORMULARIO PARA PERIODO ACADÉMICO -->
-                    <form id="formularioPeriodoAcademico">
+                    <!-- FORMULARIO PARA CREAR PERIODO ACADÉMICO -->
+                    <form id="formularioPeriodoAcademico" class="space-y-4">
                         <!-- Campo para el código -->
-                        <div class="mb-4">
+                        <div>
                             <label for="codigo" class="block text-sm font-medium text-gray-700">Código</label>
                             <input type="text" id="codigo" name="codigo" required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
                         </div>
 
                         <!-- Campo para la descripción -->
-                        <div class="mb-4">
+                        <div>
                             <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
                             <input type="text" id="descripcion" name="descripcion" required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
                         </div>
 
                         <!-- Campo para la fecha de inicio -->
-                        <div class="mb-4">
+                        <div>
                             <label for="fechaInicio" class="block text-sm font-medium text-gray-700">Fecha de
                                 Inicio</label>
                             <input type="date" id="fechaInicio" name="fechaInicio" required
@@ -62,14 +62,14 @@
                         </div>
 
                         <!-- Campo para la fecha de fin -->
-                        <div class="mb-4">
+                        <div>
                             <label for="fechaFin" class="block text-sm font-medium text-gray-700">Fecha de Fin</label>
                             <input type="date" id="fechaFin" name="fechaFin" required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
                         </div>
 
                         <!-- Campo para las semanas totales -->
-                        <div class="mb-4">
+                        <div>
                             <label for="semanasTotales" class="block text-sm font-medium text-gray-700">Semanas
                                 Totales</label>
                             <input type="number" id="semanasTotales" name="semanasTotales" required min="1"
@@ -77,12 +77,12 @@
                         </div>
 
                         <!-- Campo para tipo de semestre -->
-                        <div class="mb-4">
+                        <div>
                             <label for="tiposemestre" class="block text-sm font-medium text-gray-700">Tipo de
                                 Semestre</label>
                             <select id="tiposemestre" name="tiposemestre" required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500">
-                                <option value="">Seleccione una opción</option>
+                                <option value="" disabled selected>Seleccione una opción</option>
                                 <option value="PAR">PAR</option>
                                 <option value="IMPAR">IMPAR</option>
                             </select>
@@ -91,7 +91,7 @@
                         <!-- Botón de creación -->
                         <div class="flex justify-center">
                             <button type="submit"
-                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
+                                class="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-700 transition duration-300">
                                 Crear
                             </button>
                         </div>

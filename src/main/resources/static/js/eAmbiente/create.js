@@ -8,7 +8,7 @@ document.getElementById('formularioEquipoAmbiente').addEventListener('submit', a
     };
 
     try {
-        const response = await fetch('/api/equipos', {
+        const response = await fetch('/equipos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

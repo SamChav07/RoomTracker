@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function cargarAmbientes() {
     try {
-        const response = await fetch('/api/ambientes');
+        const response = await fetch('/ambientes');
         
         if (!response.ok) {
             throw new Error(`Error al cargar ambientes: ${response.status} ${response.statusText}`);

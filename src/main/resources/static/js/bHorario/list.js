@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function cargarBloquesHorario() {
     try {
-        const response = await fetch('/api/bloques');
+        const response = await fetch('/bloques');
         
         if (!response.ok) {
             throw new Error(`Error al cargar los bloques horarios: ${response.status} ${response.statusText}`);

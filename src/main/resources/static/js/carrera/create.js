@@ -15,7 +15,7 @@ document.getElementById('formularioCarrera').addEventListener('submit', async fu
     }
 
     try {
-        const response = await fetch('/api/carreras', {
+        const response = await fetch('/carreras', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

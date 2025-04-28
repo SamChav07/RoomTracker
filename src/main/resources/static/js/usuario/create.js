@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function cargarRoles() {
     try {
-        const response = await fetch('/api/roles');
+        const response = await fetch('/roles');
         
         if (!response.ok) {
             throw new Error(`Error al cargar los roles: ${response.status} ${response.statusText}`);
@@ -45,7 +45,7 @@ document.getElementById('formularioUsuario').addEventListener('submit', async fu
     }
 
     try {
-        const response = await fetch('/api/usuarios', {
+        const response = await fetch('/usuarios', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

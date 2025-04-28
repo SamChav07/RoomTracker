@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     cargarPeriodos();
 });
@@ -9,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 async function cargarPeriodos() {
     try {
-        const response = await fetch('/api/periodos');
+        const response = await fetch('/periodos');
         
         if (!response.ok) {
             throw new Error(`Error al cargar los periodos: ${response.status} ${response.statusText}`);
@@ -36,15 +34,15 @@ function renderizarTabla(periodos) {
         return;
     }
 
-    periodos.forEach(periodos => {
+    periodos.forEach(periodo => {
         const fila = document.createElement('tr');
         fila.className = 'bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 group';
 
         fila.innerHTML = `
-            <td class="py-3 px-2">${periodos.codigo || '-'}</td>
-            <td class="py-3 px-2">${periodos.fechaInicio || '-'}</td>
-            <td class="py-3 px-2">${periodos.fechaFin || '-'}</td>
-            <td class="py-3 px-2">${periodos.semanasTotales || '-'}</td>
+            <td class="py-3 px-2">${periodo.codigo || '-'}</td>
+            <td class="py-3 px-2">${periodo.fechaInicio || '-'}</td>
+            <td class="py-3 px-2">${periodo.fechaFin || '-'}</td>
+            <td class="py-3 px-2">${periodo.semanasTotales || '-'}</td>
         `;
 
         tbody.appendChild(fila);

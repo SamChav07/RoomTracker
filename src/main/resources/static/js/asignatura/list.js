@@ -10,7 +10,7 @@ let equipoIdToDescripcion = new Map();
 async function cargarAsignaturas() {
     try {
         // Primero cargamos los equipos
-        const equiposResponse = await fetch('/api/equipos');
+        const equiposResponse = await fetch('/equipos');
         if (!equiposResponse.ok) {
             throw new Error(`Error al cargar equipos: ${equiposResponse.status} ${equiposResponse.statusText}`);
         }
@@ -22,7 +22,7 @@ async function cargarAsignaturas() {
         });
 
         // Luego cargamos las asignaturas
-        const asignaturasResponse = await fetch('/api/asignaturas');
+        const asignaturasResponse = await fetch('/asignaturas');
         if (!asignaturasResponse.ok) {
             throw new Error(`Error al cargar asignaturas: ${asignaturasResponse.status} ${asignaturasResponse.statusText}`);
         }
