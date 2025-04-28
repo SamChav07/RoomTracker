@@ -3,10 +3,12 @@ document.getElementById('formularioPeriodoAcademico').addEventListener('submit',
 
     // Capturar los valores del formulario
     const data = {
-        codigo: document.getElementById('codigo').value,
+        codigo: document.getElementById('codigo').value.trim(),
+        descripcion: document.getElementById('descripcion').value.trim(),
         fechaInicio: document.getElementById('fechaInicio').value,
         fechaFin: document.getElementById('fechaFin').value,
-        semanasTotales: parseInt(document.getElementById('semanasTotales').value)
+        semanasTotales: parseInt(document.getElementById('semanasTotales').value),
+        tiposemestre: document.getElementById('tiposemestre').value
     };
 
     try {

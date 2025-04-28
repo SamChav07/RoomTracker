@@ -56,6 +56,31 @@ public class MainController {
         return "Asignaturas/listar_asignatura";
     }
 
+    @GetMapping("/crear/coordinador")
+    public String showC_CoordinadorPage(Model model) { // C R E A R - Coordinador
+        return "Coordinador/crear_coordinador";
+    }
+
+    @GetMapping("/listar/coordinador")
+    public String showL_CoordinadorPage(Model model) { // L I S T A R
+        return "Coordinador/listar_coordinador";
+    }
+
+    @GetMapping("/crear/usuario")
+    public String showC_UserPage(Model model) { // C R E A R - Usuario
+        return "Usuario/crear_user";
+    }
+
+    @GetMapping("/listar/usuario")
+    public String showL_UserPage(Model model) { // L I S T A R
+        return "Usuario/listar_user";
+    }
+
+    @GetMapping("/all/roles")
+    public String showC_RolPage(Model model) { // C R E A R - Rol
+        return "Rol/crear_rol";
+    }
+
     @GetMapping("/crear/ambiente")
     public String showC_AmbientePage(Model model) { // C R E A R - Ambiente
         return "Ambientes/crear_ambiente";

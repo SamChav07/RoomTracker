@@ -40,6 +40,7 @@ function renderizarTabla(profesores) {
 
         fila.innerHTML = `
             <td class="py-3 px-2">${profesor.nombre || '-'}</td> <!-- Muestra el nombre del profesor -->
+            <td class="py-3 px-2">${profesor.email || '-'}</td> <!-- Email -->
             <td class="py-3 px-2">${profesor.necesitaAccesibilidad ? 'Sí' : 'No'}</td> <!-- Accesibilidad -->
         `;
 

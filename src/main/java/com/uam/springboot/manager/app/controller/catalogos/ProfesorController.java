@@ -1,16 +1,25 @@
 package com.uam.springboot.manager.app.controller.catalogos;
 
-import jakarta.validation.Valid;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.uam.springboot.manager.app.dto.catalogos.requestDTOs.ProfesorRequestDTO;
 import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.ProfesorResponseDTO;
 import com.uam.springboot.manager.app.service.impl.catalogos.ProfesorService;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/profesores")
+@RequestMapping("/api/profesores")
 public class ProfesorController {
     private final ProfesorService service;
 

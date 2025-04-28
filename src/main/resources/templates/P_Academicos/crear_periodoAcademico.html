@@ -46,6 +46,13 @@
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
                         </div>
 
+                        <!-- Campo para la descripción -->
+                        <div class="mb-4">
+                            <label for="descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+                            <input type="text" id="descripcion" name="descripcion" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                        </div>
+
                         <!-- Campo para la fecha de inicio -->
                         <div class="mb-4">
                             <label for="fechaInicio" class="block text-sm font-medium text-gray-700">Fecha de
@@ -69,6 +76,18 @@
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
                         </div>
 
+                        <!-- Campo para tipo de semestre -->
+                        <div class="mb-4">
+                            <label for="tiposemestre" class="block text-sm font-medium text-gray-700">Tipo de
+                                Semestre</label>
+                            <select id="tiposemestre" name="tiposemestre" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500">
+                                <option value="">Seleccione una opción</option>
+                                <option value="PAR">PAR</option>
+                                <option value="IMPAR">IMPAR</option>
+                            </select>
+                        </div>
+
                         <!-- Botón de creación -->
                         <div class="flex justify-center">
                             <button type="submit"
@@ -77,6 +96,7 @@
                             </button>
                         </div>
                     </form>
+
                 </main>
             </div>
 

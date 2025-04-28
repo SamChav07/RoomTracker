@@ -16,17 +16,18 @@
 
     <div th:replace="~{fragments/board :: board}">
         <div th:fragment="contenido">
-            <h1>Crear Carrera</h1>
+            <h1>Usuario</h1>
             <div class="bg-[#F0F2F7] min-h-screen flex">
                 <!-- Main content -->
                 <main class="flex-1 p-6 max-w-full">
 
                     <!-- Tabs -->
+                    <!-- Tabs -->
                     <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
-                        <a th:href="@{/crear/carrera}"
+                        <a th:href="@{/crear/usuario}"
                             class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C
                             R E A R</a>
-                        <a th:href="@{/listar/carrera}"
+                        <a th:href="@{/listar/usuario}"
                             class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L
                             I S T A R</a>
                         <a th:href="@{#}"
@@ -34,17 +35,10 @@
                             D I T A R</a>
                     </nav>
 
-                    <h1 class="text-2xl font-bold mb-4">Crear Carrera</h1>
+                    <h1 class="text-2xl font-bold mb-4">Crear Usuario</h1>
 
-                    <!-- FORMULARIO PARA CARRERA -->
-                    <form id="formularioCarrera">
-                        <!-- Campo para el código -->
-                        <div class="mb-4">
-                            <label for="codigo" class="block text-sm font-medium text-gray-700">Código</label>
-                            <input type="text" id="codigo" name="codigo" required
-                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
-                        </div>
-
+                    <!-- FORMULARIO PARA USUARIO -->
+                    <form id="formularioUsuario">
                         <!-- Campo para el nombre -->
                         <div class="mb-4">
                             <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
@@ -52,15 +46,27 @@
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
                         </div>
 
-                        <!-- Campo para la facultad -->
+                        <!-- Campo para el correo electrónico -->
                         <div class="mb-4">
-                            <label for="facultad" class="block text-sm font-medium text-gray-700">Facultad</label>
-                            <select id="facultad" name="facultad" required
+                            <label for="email" class="block text-sm font-medium text-gray-700">Correo
+                                Electrónico</label>
+                            <input type="email" id="email" name="email" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                        </div>
+
+                        <!-- Campo para la contraseña -->
+                        <div class="mb-4">
+                            <label for="password" class="block text-sm font-medium text-gray-700">Contraseña</label>
+                            <input type="password" id="password" name="password" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                        </div>
+
+                        <!-- Campo para seleccionar roles -->
+                        <div class="mb-4">
+                            <label for="roles" class="block text-sm font-medium text-gray-700">Roles</label>
+                            <select id="roles" name="roles" multiple required
                                 class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500">
-                                <option value="" disabled selected>Selecciona una facultad</option>
-                                <option value="FIA">FIA</option>
-                                <option value="FCM">FCM</option>
-                                <option value="FODO">FODO</option>
+                                <!-- Opciones de roles cargadas dinámicamente -->
                             </select>
                         </div>
 
@@ -68,7 +74,7 @@
                         <div class="flex justify-center">
                             <button type="submit"
                                 class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
-                                Crear
+                                Crear Usuario
                             </button>
                         </div>
                     </form>
@@ -80,7 +86,7 @@
     </div>
 
     <script th:src="@{/js/script.js}" defer></script>
-    <script th:src="@{/js/carrera/create.js}" defer></script>
+    <script th:src="@{/js/usuario/create.js}" defer></script>
 
 </body>
 

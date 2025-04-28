@@ -59,7 +59,7 @@ function renderizarTabla(asignaturas) {
         fila.innerHTML = `
             <td class="py-3 px-2">${asignatura.codigo || '-'}</td>
             <td class="py-3 px-2">${asignatura.nombre || '-'}</td>
-            <td class="py-3 px-2">${asignatura.capacidadSugerida || '-'}</td>
+            <td class="py-3 px-2">${asignatura.capacidadSugerida ?? '-'}</td>
             <td class="py-3 px-2">${equiposNecesarios}</td>
         `;
 

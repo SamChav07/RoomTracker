@@ -4,8 +4,15 @@ document.getElementById('formularioCarrera').addEventListener('submit', async fu
     // Capturar los valores del formulario
     const data = {
         codigo: document.getElementById('codigo').value,
-        nombre: document.getElementById('nombre').value
+        nombre: document.getElementById('nombre').value,
+        facultad: document.getElementById('facultad').value
     };
+
+    // Validación básica
+    if (!data.codigo || !data.nombre || !data.facultad) {
+        alert('❗ Por favor completa todos los campos obligatorios');
+        return;
+    }
 
     try {
         const response = await fetch('/api/carreras', {
