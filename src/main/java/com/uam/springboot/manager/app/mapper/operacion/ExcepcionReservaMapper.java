@@ -1,13 +1,8 @@
 package com.uam.springboot.manager.app.mapper.operacion;
 
 import com.uam.springboot.manager.app.dto.operacion.requestDTOs.ExcepcionReservaRequestDTO;
-import com.uam.springboot.manager.app.dto.operacion.requestDTOs.PlantillaReservaRequestDTO;
 import com.uam.springboot.manager.app.dto.operacion.responseDTOs.ExcepcionReservaResponseDTO;
-import com.uam.springboot.manager.app.dto.operacion.responseDTOs.PlantillaReservaResponseDTO;
 import com.uam.springboot.manager.app.mapper.GenericBaseMapper;
-import com.uam.springboot.manager.app.mapper.catalogos.AmbienteMapper;
-import com.uam.springboot.manager.app.mapper.catalogos.BloqueHorarioMapper;
-import com.uam.springboot.manager.app.mapper.catalogos.GrupoMapper;
 import com.uam.springboot.manager.app.model.catalogos.Ambiente;
 import com.uam.springboot.manager.app.model.catalogos.BloqueHorario;
 import com.uam.springboot.manager.app.model.catalogos.Grupo;
@@ -21,7 +16,7 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Mapper(componentModel = "spring")//, uses = {AmbienteMapper.class, BloqueHorarioMapper.class, GrupoMapper.class,PlantillaReservaMapper.class})
+@Mapper(componentModel = "spring")
 public abstract class ExcepcionReservaMapper extends GenericBaseMapper<ExcepcionReserva, ExcepcionReservaRequestDTO, ExcepcionReservaResponseDTO> {
 
     @Autowired

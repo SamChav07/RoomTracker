@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("ambientes")
+@RequestMapping("/ambientes")
 public class AmbienteController {
     private final AmbienteService service;
 
