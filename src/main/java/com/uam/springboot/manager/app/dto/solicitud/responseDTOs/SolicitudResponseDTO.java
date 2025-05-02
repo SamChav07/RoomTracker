@@ -13,5 +13,5 @@ public record SolicitudResponseDTO(
         CoordinadorResponseDTO coordinador,
         PeriodoAcademicoResponseDTO periodo,
         ESTADOSOLICITUD estado,
-        List<SolicitudResponseDTO> solicitudesItem
+        List<SolicitudItemResponseDTO> solicitudesItem
 ) {}

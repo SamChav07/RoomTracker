@@ -3,6 +3,7 @@ package com.uam.springboot.manager.app.model.catalogos;
 
 import com.uam.springboot.manager.app.model.Identifiable;
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Min;
@@ -16,6 +17,10 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Grupo extends Identifiable {
+
+    @NotNull
+    @ManyToOne
+    private Asignatura asignatura;
 
     @NotBlank
     private String codigo;

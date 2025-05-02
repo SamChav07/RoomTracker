@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "solicitudesItem")
+@Table(name = "solicitud")
 @Getter
 @Setter
 public class Solicitud extends Identifiable {

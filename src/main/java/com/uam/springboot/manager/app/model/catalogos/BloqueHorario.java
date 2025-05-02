@@ -24,5 +24,7 @@ public class BloqueHorario extends Identifiable {
     @Min(1)
     private Integer duracionMin;
 
+    private Integer indice;
+
 
 }
