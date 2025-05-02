@@ -39,7 +39,6 @@ function renderizarTabla(bloquesHorario) {
         fila.className = 'bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 group';
 
         fila.innerHTML = `
-            <td class="py-3 px-2">${bloque.dia || '-'}</td> <!-- Muestra el día -->
             <td class="py-3 px-2">${bloque.horaInicio || '-'}</td> <!-- Muestra la hora de inicio -->
             <td class="py-3 px-2">${bloque.horaFin || '-'}</td> <!-- Muestra la hora de fin -->
             <td class="py-3 px-2">${bloque.duracionMin || '-'}</td> <!-- Muestra la duración en minutos -->

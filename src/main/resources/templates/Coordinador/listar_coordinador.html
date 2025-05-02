@@ -15,7 +15,7 @@
 
 <div th:replace="~{fragments/board :: board}">
     <div th:fragment="contenido">
-        <h1>Profesor</h1>
+        <h1>COORDINADOR</h1>
         <div class="bg-[#F0F2F7] min-h-screen flex">
             <!-- Main content -->
             <main class="flex-1 p-6 max-w-full">
@@ -53,13 +53,13 @@
                         <thead>
                         <tr class="border-b border-gray-300">
                             <tr class="border-b border-gray-300">
-                                <th class="py-2 font-semibold text-gray-900">Nombre Completo</th>
-                                <th class="py-2 font-semibold text-gray-900">Correo Electrónico</th>
-                                <th class="py-2 font-semibold text-gray-900">Accesible</th>
+                                <th class="py-3 px-4 text-left">Nombre</th>
+                                <th class="py-3 px-4 text-left">Carrera</th>
+                                <th class="py-3 px-4 text-left">ID Usuario</th>
                             </tr>
                         </tr>
                         </thead>
-                        <tbody id="tabla-profesores-body">
+                        <tbody id="tabla-coordinadores-body">
                             <!-- Aqui va la tabla -->
                         </tbody>
                     </table>
@@ -71,7 +71,7 @@
 </div>
 
     <script th:src="@{/js/script.js}" defer></script>
-    <script th:src="@{/js/profesor/list.js}" defer></script>
+    <script th:src="@{/js/coordinador/list.js}" defer></script>
 
 </body>
 

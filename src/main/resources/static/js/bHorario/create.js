@@ -3,7 +3,6 @@ document.getElementById('formularioBloqueHorario').addEventListener('submit', as
 
     // Capturar los valores del formulario
     const data = {
-        dia: document.getElementById('dia').value,
         horaInicio: document.getElementById('horaInicio').value,
         horaFin: document.getElementById('horaFin').value,
         duracionMin: document.getElementById('duracionMin').value

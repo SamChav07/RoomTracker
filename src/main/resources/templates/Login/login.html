@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acceso al Sistema | UAMV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .login-container {
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+    .input-field:focus-within {
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+    }
+  </style>
+</head>
+<body class="h-screen flex items-center justify-center bg-gray-100">
+<div class="login-container rounded-2xl p-8 w-96 shadow-2xl animate-fade-in">
+  <div class="text-center mb-8">
+    <img src="/images/logo-uamv.png" alt="Logo UAMV" class="h-20 mx-auto mb-4">
+    <h1 class="text-2xl font-bold text-gray-800">Sistema de Gestión Académica</h1>
+    <p class="text-gray-600 mt-2">Acceso seguro para personal autorizado</p>
+  </div>
+
+  <form id="loginForm" class="space-y-6" th:action="@{/login}" method="post">
+    <div class="input-field bg-white rounded-lg p-3 transition-all duration-200">
+      <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo Institucional</label>
+      <input type="email" id="email" name="email" required
+             class="w-full border-none p-0 focus:ring-0 placeholder-gray-400"
+             placeholder="usuario@uamv.edu.ni"
+             pattern="^[a-zA-Z0-9._%+-]+@uamv\.edu\.ni$"
+             title="Solo correos institucionales UAMV">
+    </div>
+
+    <div class="input-field bg-white rounded-lg p-3 transition-all duration-200">
+      <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Contraseña</label>
+      <input type="password" id="password" name="password" required
+             class="w-full border-none p-0 focus:ring-0"
+             minlength="2"
+             maxlength="20">
+    </div>
+
+    <button type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg
+                           transition-all duration-200 transform hover:scale-[1.02] focus:outline-none"
+            id="submitBtn">
+      Ingresar al Sistema
+    </button>
+  </form>
+
+  <div id="errorMessage" class="mt-4 text-red-600 text-sm text-center hidden"></div>
+</div>
+
+<script>
+  document.getElementById('loginForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = 'Verificando...';
+
+    try {
+      // Obtener lista de usuarios autorizados
+      const response = await fetch('/usuarios', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) throw new Error('Error en la autenticación');
+
+      const users = await response.json();
+      const email = sanitizeInput(document.getElementById('email').value);
+      const password = sanitizeInput(document.getElementById('password').value);
+
+      // Validar credenciales
+      const user = users.find(u =>
+              u.email === email &&
+              verificarPassword(u.password, password) // En producción usar BCrypt del lado del servidor
+      );
+
+      if (!user) throw new Error('Credenciales inválidas');
+
+      // Manejar redirección por roles
+      const roles = user.roles.map(r => r.nombre);
+      let redirectUrl = '/';
+
+      if (roles.includes('Administrador')) {
+        redirectUrl = '/inicio';
+      } else if (roles.includes('Coordinador')) {
+        redirectUrl = '/inicio';
+      }
+
+      // Guardar sesión segura (en producción usar JWT o sesiones HTTP-only)
+      sessionStorage.setItem('userSession', JSON.stringify({
+        id: user.id,
+        email: user.email,
+        roles: roles,
+        expires: Date.now() + 3600000 // 1 hora
+      }));
+
+      window.location.href = redirectUrl;
+
+    } catch (error) {
+      mostrarError(error.message);
+      console.error('Error de autenticación:', error);
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Ingresar al Sistema';
+    }
+  });
+
+  // Funciones de seguridad
+  function sanitizeInput(input) {
+    return input.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function mostrarError(mensaje) {
+    const errorDiv = document.getElementById('errorMessage');
+    errorDiv.textContent = mensaje;
+    errorDiv.classList.remove('hidden');
+    setTimeout(() => errorDiv.classList.add('hidden'), 5000);
+  }
+
+  // En producción, esta verificación debe hacerse del lado del servidor
+  function verificarPassword(hashedPassword, password) {
+    // Implementar lógica real de verificación de contraseña
+    return true; // Temporal para pruebas
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tittle}">Mi Página</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Iconos -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/viewstyles.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div th:replace="~{fragments/board :: board}">
+        <div th:fragment="contenido">
+            <h1>Solicitud</h1>
+            <div class="bg-[#F0F2F7] min-h-screen flex">
+                <!-- Main content -->
+                <main class="flex-1 p-6 max-w-full">
+
+                    <!-- Tabs -->
+                    <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
+                        <a th:href="@{/crear/solicitud}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C
+                            R E A R</a>
+                        <a th:href="@{/listar/solicitud}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L
+                            I S T A R</a>
+                        <a th:href="@{#}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">E
+                            D I T A R</a>
+                    </nav>
+
+                    <h1 class="text-2xl font-bold mb-4">Crear Ambiente</h1>
+
+                    <!-- FORMULARIO PARA CREAR UNA SOLICITUD -->
+                    <form id="formularioSolicitudCompleta">
+                        <!-- DATOS DE LA SOLICITUD -->
+                        <h2 class="text-lg font-semibold mb-2">Datos de la Solicitud 📄</h2>
+
+                        <div class="mb-4">
+                            <label for="coordinador" class="block text-sm font-medium">Coordinador</label>
+                            <select id="coordinador" name="coordinadorId" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                                <!-- Las opciones se llenarán con JS -->
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="periodo" class="block text-sm font-medium">Periodo Académico</label>
+                            <select id="periodo" name="periodoAcademicoId" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required>
+                                <!-- Las opciones se llenarán con JS -->
+                            </select>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- DATOS DE ITEMS -->
+                        <h2 class="text-lg font-semibold mb-2">Detalle de la Solicitud 🧾</h2>
+
+                        <div id="contenedor-items">
+                            <!-- Aquí se pueden agregar dinámicamente múltiples items -->
+                            <div class="item mb-4 border p-4 rounded bg-gray-50">
+                                <label>Días de la Semana:</label>
+                                <div class="flex gap-2 my-1">
+                                    <label><input type="checkbox" name="diasSemana" value="LUNES"> Lunes</label>
+                                    <label><input type="checkbox" name="diasSemana" value="MARTES"> Martes</label>
+                                    <label><input type="checkbox" name="diasSemana" value="MIERCOLES"> Miércoles</label>
+                                    <label><input type="checkbox" name="diasSemana" value="JUEVES"> Jueves</label>
+                                    <label><input type="checkbox" name="diasSemana" value="VIERNES"> Viernes</label>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="bloqueInicio">Bloque de inicio:</label>
+                                    <select name="bloqueInicioId" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required></select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="duracionBloques">Duración de bloques:</label>
+                                    <input type="number" name="duracionBloques" min="1" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="grupoId">Grupo:</label>
+                                    <select name="grupoId" class="mt-1 block w-full p-2 border border-gray-300 rounded-md" required></select>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="numeroGrupos">Número de grupos:</label>
+                                    <input type="number" name="numeroGrupos" min="1" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="observaciones">Observaciones:</label>
+                                    <input type="text" name="observaciones">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- BOTÓN DE ENVÍO -->
+                        <div class="text-center mt-6">
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">
+                                Enviar Solicitud 🚀
+                            </button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script th:src="@{/js/script.js}" defer></script>
+    <script th:src="@{/js/solicitud/create.js}" defer></script>
+
+</body>
+
+</html>

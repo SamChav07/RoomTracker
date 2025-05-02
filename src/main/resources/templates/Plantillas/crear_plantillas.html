@@ -16,17 +16,17 @@
 
     <div th:replace="~{fragments/board :: board}">
         <div th:fragment="contenido">
-            <h1>E-RESERVA</h1>
+            <h1>Plantillas</h1>
             <div class="bg-[#F0F2F7] min-h-screen flex">
                 <!-- Main content -->
                 <main class="flex-1 p-6 max-w-full">
 
                     <!-- Tabs -->
                     <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
-                        <a th:href="@{/crear/excepcionReserva}"
+                        <a th:href="@{/crear/plantillas}"
                             class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C
                             R E A R</a>
-                        <a th:href="@{/listar/excepcionReserva}"
+                        <a th:href="@{/listar/plantillas}"
                             class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L
                             I S T A R</a>
                         <a th:href="@{#}"
@@ -34,66 +34,57 @@
                             D I T A R</a>
                     </nav>
 
-                    <h1 class="text-2xl font-bold mb-4">Crear EXEPCION DE RESERVA</h1>
+                    <h1 class="text-2xl font-bold mb-4">Crear Asignatura</h1>
 
-                    <!-- FORMULARIO PARA EXCEPCIÓN DE RESERVA -->
-                    <form id="formularioExcepcionReserva" class="space-y-4">
+                    <!-- FORMULARIO PARA PLANTILLA DE RESERVA -->
+                    <form id="formularioPlantillaReserva" class="space-y-4">
 
-                        <!-- Campo: Plantilla ID -->
+                        <!-- Campo: Periodo Académico -->
                         <div>
-                            <label for="plantillaId" class="block text-sm font-medium text-gray-700">Plantilla</label>
-                            <select id="plantillaId" name="plantillaId" required
+                            <label for="periodo" class="block text-sm font-medium text-gray-700">Periodo Académico</label>
+                            <select id="periodo" name="periodo" required
                                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
                                 <!-- Opciones cargadas dinámicamente -->
                             </select>
                         </div>
 
-                        <!-- Campo: Fecha -->
+                        <!-- Campo: Día de la Semana -->
                         <div>
-                            <label for="fecha" class="block text-sm font-medium text-gray-700">Fecha</label>
-                            <input type="date" id="fecha" name="fecha" required
-                                   class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500" />
-                        </div>
-                        <script>
-                            // Selecciona el input por su id
-                            const inputFecha = document.getElementById('fecha');
-                            // Asigna la fecha actual en formato YYYY-MM-DD
-                            inputFecha.valueAsDate = new Date();
-                        </script>
-
-                        <!-- Campo: Tipo de Excepción -->
-                        <div>
-                            <label for="tipo" class="block text-sm font-medium text-gray-700">Tipo de Excepción</label>
-                            <select id="tipo" name="tipo" required
+                            <label for="diaSemana" class="block text-sm font-medium text-gray-700">Día de la Semana</label>
+                            <select id="diaSemana" name="diaSemana" required
                                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
-                                <!-- Opciones del enum TIPOEXCEPCION -->
-                                <option value="MODIFICACION">Modificar</option>
-                                <option value="ANULACION">Anular</option>
+                                <option value="LUNES">LUNES</option>
+                                <option value="MARTES">MARTES</option>
+                                <option value="MIERCOLES">MIERCOLES</option>
+                                <option value="JUEVES">JUEVES</option>
+                                <option value="VIERNES">VIERNES</option>
+                                <option value="SABADO">SABADO</option>
+                                <option value="DOMINGO">DOMINGO</option>
                             </select>
                         </div>
 
-                        <!-- Campo: Ambiente ID -->
+                        <!-- Campo: Ambiente -->
                         <div>
-                            <label for="ambienteId" class="block text-sm font-medium text-gray-700">Nuevo Ambiente (opcional)</label>
-                            <select id="ambienteId" name="ambienteId"
+                            <label for="ambiente" class="block text-sm font-medium text-gray-700">Ambiente</label>
+                            <select id="ambiente" name="ambiente" required
                                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
                                 <!-- Opciones cargadas dinámicamente -->
                             </select>
                         </div>
 
-                        <!-- Campo: Nuevo TimeSlot -->
+                        <!-- Campo: Horario (TimeSlot) -->
                         <div>
-                            <label for="nuevoTimeSlotId" class="block text-sm font-medium text-gray-700">Nuevo Horario</label>
-                            <select id="nuevoTimeSlotId" name="nuevoTimeSlotId"
+                            <label for="horario" class="block text-sm font-medium text-gray-700">Horario</label>
+                            <select id="horario" name="horario" required
                                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
                                 <!-- Opciones cargadas dinámicamente -->
                             </select>
                         </div>
 
-                        <!-- Campo: Grupo ID -->
+                        <!-- Campo: Grupo -->
                         <div>
-                            <label for="grupoId" class="block text-sm font-medium text-gray-700">Grupo</label>
-                            <select id="grupoId" name="grupoId"
+                            <label for="grupo" class="block text-sm font-medium text-gray-700">Grupo</label>
+                            <select id="grupo" name="grupo" required
                                     class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
                                 <!-- Opciones cargadas dinámicamente -->
                             </select>
@@ -102,8 +93,8 @@
                         <!-- Botón para enviar -->
                         <div class="flex justify-center">
                             <button type="submit"
-                                    class="bg-blue-600 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
-                                Crear Excepción
+                                    class="bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700">
+                                Crear Plantilla
                             </button>
                         </div>
                     </form>
@@ -114,7 +105,7 @@
     </div>
 
     <script th:src="@{/js/script.js}" defer></script>
-    <script th:src="@{/js/exepcionReserva/create.js}" defer></script>
+    <script th:src="@{/js/plantillas/create.js}" defer></script>
 
 </body>
 

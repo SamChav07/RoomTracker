@@ -83,14 +83,16 @@ document.getElementById('formularioAmbiente').addEventListener('submit', async f
         });
 
         if (response.ok) {
-            alert('✅ Ambiente creado exitosamente');
-            window.location.href = '/listar/ambiente';
+            showNotification('success', '✅ Ambiente creado exitosamente');
+            setTimeout(() => {
+                window.location.href = '/listar/ambiente';
+            }, 1500); // Redirige después de 1.5 segundos
         } else {
             const errorData = await response.json();
-            alert('❌ Error al crear el ambiente: ' + (errorData.message || 'Error desconocido'));
+            showNotification('error', `❌ Error: ${errorData.message || 'Error desconocido'}`);
         }
     } catch (error) {
         console.error('❌ Error en la solicitud:', error);
-        alert('❌ Error en la solicitud: ' + error.message);
+        showNotification('error', `❌ Error: ${error.message}`);
     }
 });

@@ -12,9 +12,14 @@ import java.util.Map;
 
 @Controller
 public class MainController {
-    @GetMapping("/gpt")
+    @GetMapping("/execpciones")
     public String showTPage(Model model) {
-        return "Grupos/formulario";
+        return "login";
+    }
+
+    @GetMapping("/login")
+    public String showLOGPage(Model model) {
+        return "Login/login";
     }
 
     @GetMapping("/inicio")
@@ -144,5 +149,25 @@ public class MainController {
     @GetMapping("/listar/excepcionReserva")
     public String showL_ExcepcionReservaPage(Model model) { // C R E A R - Rol
         return "ExcepcionReserva/listar_excepcionReserva";
+    }
+
+    @GetMapping("/crear/solicitud")
+    public String showC_SolicitudPage(Model model) { // C R E A R - Rol
+        return "Solicitudes/crear_solicitud";
+    }
+
+    @GetMapping("/listar/solicitud")
+    public String showL_SolicitudaPage(Model model) { // C R E A R - Rol
+        return "Solicitudes/listar_solicitud";
+    }
+
+    @GetMapping("/crear/plantillas")
+    public String showC_PlantillasPage(Model model) { // C R E A R - Rol
+        return "Plantillas/crear_plantillas";
+    }
+
+    @GetMapping("/listar/plantillas")
+    public String showL_PlantillasPage(Model model) { // C R E A R - Rol
+        return "Plantillas/listar_plantillas";
     }
 }
