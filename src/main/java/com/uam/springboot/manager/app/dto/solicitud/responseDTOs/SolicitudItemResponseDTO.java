@@ -3,7 +3,6 @@ package com.uam.springboot.manager.app.dto.solicitud.responseDTOs;
 import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.GrupoResponseDTO;
 import com.uam.springboot.manager.app.model.catalogos.BloqueHorario;
 import com.uam.springboot.manager.app.model.catalogos.DIASSEMANA;
-import com.uam.springboot.manager.app.model.solicitud.ESTADOITEM;
 
 import java.util.Set;
 
