@@ -57,19 +57,27 @@
           </a>
         </li>
         <li>
+          <a th:href="@{/listar/grupo}"
+             class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+            <i class="fas fa-book transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+            <span class="hidden group-hover:block">Grupos</span>
+          </a>
+        </li>
+        <li>
           <a th:href="@{/listar/coordinador}"
             class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
             <i class="fas fa-user-tie transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
             <span class="hidden group-hover:block">Coordinador</span>
           </a>
         </li>
-        <li>
-          <a th:href="@{/all/oLogistico}"
-            class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
-            <i class="fas fa-hands-helping transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
-            <span class="hidden group-hover:block">Operador Logistico</span>
-          </a>
-        </li>
+<!--        ESTE SE OCULTO POR CUESTION DE REDUNDANCIA-->
+<!--        <li>-->
+<!--          <a th:href="@{/all/oLogistico}"-->
+<!--            class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">-->
+<!--            <i class="fas fa-hands-helping transform scale-150 group-hover:scale-100 transition-all duration-300"></i>-->
+<!--            <span class="hidden group-hover:block">Operador Logistico</span>-->
+<!--          </a>-->
+<!--        </li>-->
         <li>
           <a th:href="@{/all/roles}"
             class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
@@ -103,6 +111,30 @@
             class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
             <i class="fas fa-clock transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
             <span class="hidden group-hover:block">Bloque Horario</span>
+          </a>
+        </li>
+<!--        A PARTIR DE AQUI VIENEN LOS BOTONES DE DE LOS CONTROLLER DE OPERACIONES-->
+        <li>
+          <a th:href="@{/listar/excepcionReserva}"
+             class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+            <i class="fas fa-ban transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+            <span class="hidden group-hover:block">Excepción de Reserva</span>
+          </a>
+        </li>
+
+        <li>
+          <a th:href="@{/listar/planificacion}"
+             class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+            <i class="fas fa-calendar-alt transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+            <span class="hidden group-hover:block">Planificación</span>
+          </a>
+        </li>
+
+        <li>
+          <a th:href="@{/listar/reservaPlantilla}"
+             class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+            <i class="fas fa-file-alt transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+            <span class="hidden group-hover:block">Reserva de Plantilla</span>
           </a>
         </li>
       </ul>

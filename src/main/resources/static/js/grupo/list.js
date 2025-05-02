@@ -1,47 +1,35 @@
-document.addEventListener('DOMContentLoaded', cargarRoles);
+document.addEventListener("DOMContentLoaded", () => {
+    cargarGrupos(); // Cargar datos al cargar la página
+});
 
-async function cargarRoles() {
+async function cargarGrupos() {
     try {
-        const response = await fetch('/roles');
-        
+        const response = await fetch("/grupos");
+
         if (!response.ok) {
-            throw new Error(`Error al cargar los roles: ${response.status} ${response.statusText}`);
+            throw new Error(`Error al cargar los grupos: ${response.status} ${response.statusText}`);
         }
 
-        const roles = await response.json();
-        renderizarTabla(roles);
+        const grupos = await response.json();
+        const tbody = document.getElementById("tabla-grupos-body");
+
+        tbody.innerHTML = ''; // Limpiar contenido anterior
+
+        grupos.forEach(grupo => {
+            const tr = document.createElement("tr");
+            tr.classList.add("bg-white", "shadow", "rounded");
+
+            tr.innerHTML = `
+                <td class="py-2 px-4">${grupo.codigo}</td>
+                <td class="py-2 px-4">${grupo.numeroEstudiantes}</td>
+                <td class="py-2 px-4">${grupo.numeroGrupo}</td>
+                <td class="py-2 px-4">${grupo.profesor?.nombre || "Desconocido"}</td>
+            `;
+
+            tbody.appendChild(tr);
+        });
     } catch (error) {
-        console.error(error);
-        mostrarError("No se pudieron cargar los roles. Intenta más tarde.");
+        console.error("❌ Error al cargar los grupos:", error);
+        alert("❌ No se pudo cargar la lista de grupos");
     }
-}
-
-function renderizarTabla(roles) {
-    const tbody = document.getElementById('tabla-roles-body');
-    tbody.innerHTML = ""; // Limpiar cualquier contenido previo
-
-    if (roles.length === 0) {
-        mostrarError("No hay roles académicos disponibles.");
-        return;
-    }
-
-    roles.forEach(rol => {
-        const fila = document.createElement('tr');
-        fila.className = 'bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-200 group';
-
-        fila.innerHTML = `
-            <td class="py-3 px-2 text-center">${rol.nombre || '-'}</td> <!-- Muestra el nombre del rol -->
-        `;
-
-        tbody.appendChild(fila);
-    });
-}
-
-function mostrarError(mensaje) {
-    const tbody = document.getElementById('tabla-roles-body');
-    tbody.innerHTML = `
-        <tr>
-            <td colspan="3" class="text-center text-red-600 py-6">${mensaje}</td>
-        </tr>
-    `;
 }

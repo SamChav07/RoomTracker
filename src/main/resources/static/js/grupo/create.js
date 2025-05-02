@@ -1,37 +1,72 @@
-document.getElementById('formularioRoles').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Evitar que se recargue la página
+document.addEventListener("DOMContentLoaded", () => {
+    cargarProfesores(); // Llenar select con profesores al cargar
+});
 
-    // Capturar los valores del formulario
-    const data = {
-        nombre: document.getElementById('nombre').value
-    };
+async function cargarProfesores() {
+    try {
+        const response = await fetch("/profesores");
 
-    // Validación básica
-    if (!data.nombre) {
-        alert('❗ Por favor completa todos los campos obligatorios');
+        if (!response.ok) {
+            throw new Error(`Error al cargar los profesores: ${response.status} ${response.statusText}`);
+        }
+
+        const profesores = await response.json();
+        const selectProfesor = document.getElementById("profesorId");
+
+        // Limpiar opciones anteriores
+        selectProfesor.innerHTML = '<option value="">Seleccione un profesor</option>';
+
+        // Agregar cada profesor al select
+        profesores.forEach(profesor => {
+            const option = document.createElement("option");
+            option.value = profesor.id;
+            option.textContent = profesor.nombre; // Asegúrate de que el JSON tenga "id" y "nombre"
+            selectProfesor.appendChild(option);
+        });
+    } catch (error) {
+        console.error(error);
+        alert("❌ Error al cargar los profesores");
+    }
+}
+
+document.getElementById("grupoForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const codigo = document.getElementById("codigo").value.trim();
+    const numeroEstudiantes = parseInt(document.getElementById("numeroEstudiantes").value);
+    const numeroGrupo = parseInt(document.getElementById("numeroGrupo").value);
+    const profesorId = parseInt(document.getElementById("profesorId").value);
+
+    if (!codigo || !numeroEstudiantes || !numeroGrupo || !profesorId) {
+        alert("⚠️ Todos los campos son obligatorios");
         return;
     }
 
+    const data = {
+        codigo,
+        numeroEstudiantes,
+        numeroGrupo,
+        profesorId
+    };
+
     try {
-        const response = await fetch('/roles', {
-            method: 'POST',
+        const response = await fetch("/grupos", {
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             },
             body: JSON.stringify(data)
         });
 
         if (response.ok) {
-            // Si la respuesta es exitosa, muestra un mensaje de éxito y redirige
-            alert('✅ Rol académico creado exitosamente');
-            window.location.href = '/all/roles'; // Redirige a la lista de roles
+            alert("✅ Grupo registrado exitosamente");
+            window.location.href = "/listar/grupo"; // Ajusta esta ruta si es diferente
         } else {
-            // Si la respuesta no es exitosa, muestra el error
             const errorData = await response.json();
-            alert('❌ Error al crear el rol: ' + (errorData.message || 'Error desconocido'));
+            alert("❌ Error al registrar el grupo: " + (errorData.message || "Error desconocido"));
         }
     } catch (error) {
-        console.error('Error:', error);
-        alert('❌ Error en la solicitud: ' + error.message);
+        console.error("❌ Error en el envío:", error);
+        alert("❌ Error al enviar los datos del grupo");
     }
 });

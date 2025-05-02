@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tittle}">Mi Página</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Iconos -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/viewstyles.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div th:replace="~{fragments/board :: board}">
+        <div th:fragment="contenido">
+            <h1>AMBIENTE</h1>
+            <div class="bg-[#F0F2F7] min-h-screen flex">
+                <!-- Main content -->
+                <main class="flex-1 p-6 max-w-full">
+
+                    <!-- Tabs -->
+                    <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
+                        <a th:href="@{/crear/ambiente}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C
+                            R E A R</a>
+                        <a th:href="@{/listar/ambiente}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L
+                            I S T A R</a>
+                        <a th:href="@{#}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">E
+                            D I T A R</a>
+                    </nav>
+
+                    <h1 class="text-2xl font-bold mb-4">Crear Ambiente</h1>
+
+                    <!-- FORMULARIO MODIFICADO -->
+                    <form id="formularioAmbiente">
+                        <div class="mb-4">
+                            <label for="codigo" class="block text-sm font-medium text-gray-700">Código</label>
+                            <input type="text" id="codigo" name="codigo" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="capacidad" class="block text-sm font-medium text-gray-700">Capacidad</label>
+                            <input type="number" id="capacidad" name="capacidad" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="estado" class="block text-sm font-medium text-gray-700">Estado</label>
+                            <select id="estado" name="estado" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500">
+                                <option value="ACTIVO">ACTIVO</option>
+                                <option value="INACTIVO">INACTIVO</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="tipo_ambiente" class="block text-sm font-medium text-gray-700">Tipo de
+                                Ambiente</label>
+                            <select id="tipo_ambiente" name="tipo_ambiente" required
+                                class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500">
+                                <option value="AULA">AULA</option>
+                                <option value="AUDITORIO">AUDITORIO</option>
+                                <option value="SALA_DE_REUNION_TUTORIAS">SALA DE REUNIÓN TUTORÍAS</option>
+                                <option value="AUDITORIO_CENTRAL">AUDITORIO CENTRAL</option>
+                                <option value="CICLOGRAMA_SET_DE_FOTOGRAFIA">CICLOGRAMA SET DE FOTOGRAFÍA</option>
+                                <option value="JAGUAR_CENTER">JAGUAR CENTER</option>
+                                <option value="CANCHA_DE_SOFTBOL">CANCHA DE SOFTBOL</option>
+                                <option value="CANCHA_DE_FUTBOL">CANCHA DE FÚTBOL</option>
+                                <option value="TALLER_SALA_DE_DIBUJO">TALLER SALA DE DIBUJO</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="accesible" class="block text-sm font-medium text-gray-700">¿Es accesible?</label>
+                            <div class="flex items-center">
+                                <input type="checkbox" id="accesible" name="accesible" class="mr-2 leading-tight" />
+                                <span class="text-sm text-gray-600">Sí</span>
+                            </div>
+                        </div>
+
+                        <!-- Campo para seleccionar equipos necesarios -->
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium text-gray-700">Selecciona un equipo</label>
+                            <div id="equipos-container" class="mt-1">
+                                <!-- Los checkboxes se llenarán dinámicamente aquí -->
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center">
+                            <button type="submit"
+                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
+                                Crear
+                            </button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script th:src="@{/js/script.js}" defer></script>
+    <script th:src="@{/js/ambiente/create.js}" defer></script>
+
+</body>
+
+</html>

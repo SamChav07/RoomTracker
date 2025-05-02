@@ -15,15 +15,15 @@
 
 <div th:replace="~{fragments/board :: board}">
     <div th:fragment="contenido">
-        <h1>Asignatura</h1>
+        <h1>E-RESERVA</h1>
         <div class="bg-[#F0F2F7] min-h-screen flex">
             <!-- Main content -->
             <main class="flex-1 p-6 max-w-full">
 
                 <!-- Tabs -->
                 <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
-                    <a th:href="@{/crear/asignatura}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C R E A R</a>
-                    <a th:href="@{/listar/asignatura}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L I S T A R</a>
+                    <a th:href="@{/crear/excepcionReserva}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C R E A R</a>
+                    <a th:href="@{/listar/excepcionReserva}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L I S T A R</a>
                     <a th:href="@{#}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">E D I T A R</a>
                 </nav>
 

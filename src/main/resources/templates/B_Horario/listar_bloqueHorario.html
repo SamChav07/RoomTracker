@@ -15,15 +15,15 @@
 
 <div th:replace="~{fragments/board :: board}">
     <div th:fragment="contenido">
-        <h1>Grupos</h1>
+        <h1>BLOQUE HORARIO</h1>
         <div class="bg-[#F0F2F7] min-h-screen flex">
             <!-- Main content -->
             <main class="flex-1 p-6 max-w-full">
 
                 <!-- Tabs -->
                 <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
-                    <a th:href="@{/crear/grupo}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C R E A R</a>
-                    <a th:href="@{/listar/grupo}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L I S T A R</a>
+                    <a th:href="@{/crear/bHorario}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C R E A R</a>
+                    <a th:href="@{/listar/bHorario}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L I S T A R</a>
                     <a th:href="@{#}" class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">E D I T A R</a>
                 </nav>
 
@@ -52,16 +52,16 @@
                     <table class="w-full text-xs text-left text-gray-600 border-separate border-spacing-y-2">
                         <thead>
                         <tr class="border-b border-gray-300">
-                        <tr class="border-b border-gray-300">
-                            <th class="py-2 font-semibold text-gray-900">Código</th>
-                            <th class="py-2 font-semibold text-gray-900">Numero de estudiantes</th>
-                            <th class="py-2 font-semibold text-gray-900">Numero de Grupo</th>
-                            <th class="py-2 font-semibold text-gray-900">Profesor</th>
-                        </tr>
+                            <tr class="border-b border-gray-300">
+                                <th class="py-2 font-semibold text-gray-900">Día de la Semana</th>
+                                <th class="py-2 font-semibold text-gray-900">Hora de Inicio</th>
+                                <th class="py-2 font-semibold text-gray-900">Hora de Fin</th>
+                                <th class="py-2 font-semibold text-gray-900">Duración en Minutos</th>
+                            </tr>
                         </tr>
                         </thead>
-                        <tbody id="tabla-grupos-body">
-                        <!-- Aqui va la tabla -->
+                        <tbody id="tabla-bloquesHorario-body">
+                            <!-- Aqui va la tabla -->
                         </tbody>
                     </table>
                 </div>
@@ -71,8 +71,8 @@
     </div>
 </div>
 
-<script th:src="@{/js/script.js}" defer></script>
-<script th:src="@{/js/grupo/list.js}" defer></script>
+    <script th:src="@{/js/script.js}" defer></script>
+    <script th:src="@{/js/bHorario/list.js}" defer></script>
 
 </body>
 
