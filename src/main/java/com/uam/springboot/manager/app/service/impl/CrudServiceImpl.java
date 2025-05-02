@@ -7,7 +7,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-    public class CrudServiceImpl<E extends Identifiable, RQ, RS, ID> implements ICrudService<RQ, RS, ID> {
+    public class CrudServiceImpl<E extends Identifiable,
+            RQ,
+            RS,
+            ID
+            > implements ICrudService<RQ, RS, ID> {
 
         protected final JpaRepository<E, ID> repository;
         protected final GenericBaseMapper<E, RQ, RS> mapper;

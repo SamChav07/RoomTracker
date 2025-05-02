@@ -5,6 +5,7 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.BloqueHorarioRe
 import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.GrupoResponseDTO;
 import com.uam.springboot.manager.app.dto.operacion.responseDTOs.ExcepcionReservaResponseDTO;
 import com.uam.springboot.manager.app.dto.operacion.responseDTOs.PlantillaReservaResponseDTO;
+import com.uam.springboot.manager.app.dto.operacion.responseDTOs.SimplePlantillaReservaResponseDTO;
 import com.uam.springboot.manager.app.mapper.catalogos.AmbienteMapper;
 import com.uam.springboot.manager.app.mapper.catalogos.BloqueHorarioMapper;
 import com.uam.springboot.manager.app.mapper.catalogos.GrupoMapper;
@@ -43,36 +44,27 @@ public class PlanificacionService {
         this.grupoMapper = grupoMapper;
     }
 
-    /**
-     * Genera la planificación de reservas para una fecha concreta,
-     * combinando plantillas semanales y excepciones definidas.
-     */
     public List<PlantillaReservaResponseDTO> getPlanificacionParaFecha(
             Long periodoId,
             LocalDate fecha) {
-        // 1) Mapear fecha -> DIASSEMANA
         DIASSEMANA dia = DIASSEMANA.fromDayOfWeek(fecha.getDayOfWeek());
 
-        // 2) Obtener plantillas base y excepciones
         List<PlantillaReservaResponseDTO> plantillas =
                 plantillaService.findByPeriodoAndDia(periodoId, dia);
 
         List<ExcepcionReservaResponseDTO> excepciones =
                 excepcionService.findByFecha(fecha);
 
-        // 3) Indexar excepciones por ID de plantilla
         Map<Long, ExcepcionReservaResponseDTO> exMap = excepciones.stream()
                 .collect(Collectors.toMap(
                         er -> er.plantilla().id(),
                         er -> er
                 ));
 
-        // 4) Combinar plantillas y excepciones
         List<PlantillaReservaResponseDTO> resultado = new ArrayList<>();
         for (PlantillaReservaResponseDTO pr : plantillas) {
             ExcepcionReservaResponseDTO ex = exMap.get(pr.id());
 
-            // Excepción de anulación: omitir reserva
             if (ex != null && ex.tipo() == TIPOEXCEPCION.ANULACION) {
                 continue;
             }
@@ -107,4 +99,17 @@ public class PlanificacionService {
 
         return resultado;
     }
+
+    public List<SimplePlantillaReservaResponseDTO> getPlanificacionSimpleParaFecha(Long periodoId, LocalDate fecha) {
+        List<PlantillaReservaResponseDTO> completas = getPlanificacionParaFecha(periodoId, fecha);
+        return completas.stream()
+                .map(p -> new SimplePlantillaReservaResponseDTO(
+                        p.id(),
+                        p.ambiente().id(),
+                        p.timeSlot().id(),
+                        p.grupo().id()
+                ))
+                .toList();
+    }
+
 }

@@ -15,9 +15,6 @@ import java.time.LocalTime;
 @Table(name = "time_slots")
 public class BloqueHorario extends Identifiable {
 
-    @Enumerated(EnumType.STRING)
-    private DIASSEMANA dia;
-
     @NotNull
     private LocalTime horaInicio;
 
