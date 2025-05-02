@@ -6,7 +6,6 @@ import java.time.LocalTime;
 
 public record BloqueHorarioResponseDTO(
         Long id,
-        DIASSEMANA dia,
         LocalTime horaInicio,
         LocalTime horaFin,
         Integer duracionMin

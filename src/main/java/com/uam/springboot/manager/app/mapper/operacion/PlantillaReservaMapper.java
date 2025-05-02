@@ -6,11 +6,14 @@ import com.uam.springboot.manager.app.mapper.GenericBaseMapper;
 import com.uam.springboot.manager.app.model.catalogos.Ambiente;
 import com.uam.springboot.manager.app.model.catalogos.BloqueHorario;
 import com.uam.springboot.manager.app.model.catalogos.Grupo;
+import com.uam.springboot.manager.app.model.catalogos.PeriodoAcademico;
 import com.uam.springboot.manager.app.model.operacion.PlantillaReserva;
 import com.uam.springboot.manager.app.model.solicitud.SolicitudItem;
 import com.uam.springboot.manager.app.repository.catalogos.AmbienteRepository;
 import com.uam.springboot.manager.app.repository.catalogos.BloqueHorarioRepository;
 import com.uam.springboot.manager.app.repository.catalogos.GrupoRepository;
+import com.uam.springboot.manager.app.repository.catalogos.PeriodoAcademicoRepository;
+import com.uam.springboot.manager.app.repository.solicitud.SolicitudRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +27,15 @@ public abstract class PlantillaReservaMapper extends GenericBaseMapper<Plantilla
     protected BloqueHorarioRepository bloqueHorarioRepo;
     @Autowired
     protected GrupoRepository grupoRepo;
+    @Autowired
+    protected PeriodoAcademicoRepository periodorepo;
 
     @Override
     @Mapping(target = "ambiente", source = "ambienteId")
     @Mapping(target = "timeSlot", source = "timeSlotId")
     @Mapping(target= "grupo", source = "grupoId")
+    @Mapping(target= "periodo", source= "periodoId")
+    @Mapping(target = "diaSemana", source = "diaSemana")
     public abstract PlantillaReserva toEntity(PlantillaReservaRequestDTO dto);
 
     protected Ambiente mapAmbienteId(Long id) {
@@ -39,6 +46,10 @@ public abstract class PlantillaReservaMapper extends GenericBaseMapper<Plantilla
     }
     protected Grupo mapGrupoId(Long id) {
         return grupoRepo.findById(id).orElseThrow(() -> new IllegalArgumentException("No existe Grupo para id=" + id));
+    }
+
+    protected PeriodoAcademico mapPeriodoId(Long id) {
+        return periodorepo.findById(id).orElseThrow(() -> new IllegalArgumentException("No existe Periodo para id=" + id));
     }
 
 }

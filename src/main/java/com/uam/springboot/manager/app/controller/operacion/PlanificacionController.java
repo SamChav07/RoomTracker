@@ -1,6 +1,7 @@
 package com.uam.springboot.manager.app.controller.operacion;
 
 import com.uam.springboot.manager.app.dto.operacion.responseDTOs.PlantillaReservaResponseDTO;
+import com.uam.springboot.manager.app.dto.operacion.responseDTOs.SimplePlantillaReservaResponseDTO;
 import com.uam.springboot.manager.app.service.impl.operacion.PlanificacionService;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
@@ -28,5 +29,15 @@ public class PlanificacionController {
             @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha) {
         return ResponseEntity.ok(service.getPlanificacionParaFecha(periodoId, fecha));
     }
+
+    @GetMapping("/periodo/{periodoId}/fecha/{fecha}/simple")
+    public ResponseEntity<List<SimplePlantillaReservaResponseDTO>> getPlanificacionSimple(
+            @PathVariable Long periodoId,
+            @PathVariable @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fecha) {
+        return ResponseEntity.ok(
+                service.getPlanificacionSimpleParaFecha(periodoId, fecha)
+        );
+    }
+
 }
 

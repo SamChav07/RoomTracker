@@ -5,11 +5,13 @@ import com.uam.springboot.manager.app.dto.catalogos.responseDTOs.PeriodoAcademic
 import com.uam.springboot.manager.app.model.solicitud.ESTADOSOLICITUD;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public record SolicitudResponseDTO(
         Long id,
-        LocalDateTime fechaCreacion,
-        ESTADOSOLICITUD estado,
+        LocalDateTime fechaSolicitud,
         CoordinadorResponseDTO coordinador,
-        PeriodoAcademicoResponseDTO periodoAcademico
+        PeriodoAcademicoResponseDTO periodo,
+        ESTADOSOLICITUD estado,
+        List<SolicitudResponseDTO> solicitudesItem
 ) {}
