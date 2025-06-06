@@ -2,65 +2,223 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <body class="bg-gray-100">
-    <div th:fragment="board">
-        <!-- Sidebar -->
-        <div class="sidebar w-16 h-screen bg-white text-gray-800 fixed left-0 top-0 overflow-y-auto shadow-md transition-all duration-300 ease-in-out group hover:w-64">
-            <h2 class="text-xl font-bold py-4 border-b flex items-center justify-center gap-2"><img src="/img/graco.svg" class="w-8 h-8 transform scale-150 group-hover:scale-0 transition-all duration-300" alt="Logo"><span class="hidden group-hover:block">siglasDelSYS</span></h2>
-        
-            <!-- Menú -->
-            <ul class="menu-espacio space-y-1 px-4 flex items-center flex-col gap-y-3 group-hover:gap-y-1 transition-all duration-300">
-                <li><a th:href="@{/inicio}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-home transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Inicio</span></a></li>
-                <li><a th:href="@{/ambiente}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-leaf transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Ambiente</span></a></li>
-                <li><a th:href="@{/asignacion}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-tasks transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Asignación</span></a></li>
-                <li><a th:href="@{/carrera}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-graduation-cap transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Carrera</span></a></li>
-                <li><a th:href="@{/clase}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-chalkboard-teacher transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Clase</span></a></li>
-                <li><a th:href="@{/coordinador}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-user-tie transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Coordinador</span></a></li>
-                <li><a th:href="@{/evento}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-calendar-alt transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Evento</span></a></li>
-                <li><a th:href="@{/facultad}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-university transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Facultad</span></a></li>
-                <li><a th:href="@{/logistica}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-truck-moving transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Logística</span></a></li>
-                <li><a th:href="@{/profesor}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-user transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Profesor</span></a></li>
-                <li><a th:href="@{/proyeccion}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-hands-helping transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Proyección</span></a></li>
-                <li><a th:href="@{/solicitud}" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]"><i class="fas fa-file-alt transform scale-150 group-hover:scale-100 transition-all duration-300"></i><span class="hidden group-hover:block">Solicitud</span></a></li>
-            </ul>    
-        
-        </div>
-            
-        <div class="main-content flex-1 transition-all duration-300 ease-in-out ml-16">
-            <!-- Header -->
-            <div class="flex-1 justify-between items-center p-4 bg-white border-b">
-                <!-- Título y Navegación -->
-                <div class="flex flex-col space-y-1">
-        
-                    <div>
-                        <h1 class="text-xl font-semibold">Content Management</h1>
-                    </div>
-                    <div class="flex justify-center items-center h-auto p-2 space-x-6">
-                        <!-- Lista de navegacion -->
-                        <nav class="flex space-x-6">
-                            <ul class="flex space-x-6 text-gray-700">
-                                <li><a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Welcome!</a></li>
-                                <li><a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">List</a></li>
-                                <li><a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Calendar</a></li>
-                                <li><a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Board</a></li>
-                                <li><a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Gantt</a></li>
-                                <li><a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Timeline</a></li>
-                                <li><a href="#" class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">View</a></li>
-                            </ul>
-                        </nav>
-                        <!-- Botones -->
-                        <div class="flex space-x-6">
-                            <button class="p-2 border rounded text-gray-700 hover:text-blue-500">Automate</button>
-                            <button class="p-2 border rounded text-gray-700 hover:text-blue-500">Share</button>
-                        </div>
-                    </div>
-                </div>  
-            </div>
-        
-            <!-- Contenido principal -->
-            <div class="flex-1 p-6 bg-gray-100" th:insert="~{::contenido}"></div>
-        </div>
+  <div th:fragment="board">
+    <!-- Sidebar -->
+    <div
+      class="sidebar w-16 h-screen bg-white text-gray-800 fixed left-0 top-0 overflow-y-auto shadow-md transition-all duration-300 ease-in-out group hover:w-64">
+      <h2 class="text-xl font-bold py-4 border-b flex items-center justify-center gap-2">
+        <img src="/img/graco.svg" class="w-8 h-8 transform scale-150 group-hover:scale-0 transition-all duration-300"
+          alt="Logo">
+        <span class="hidden group-hover:block">Ambientes UAM</span>
+      </h2>
 
+        <!-- Menú -->
+        <ul class="menu-espacio space-y-1 px-4 flex flex-col gap-y-3 group-hover:gap-y-1 transition-all duration-300">
+            <!-- Inicio -->
+            <li>
+                <a th:href="@{/inicio}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-home transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Inicio</span>
+                </a>
+            </li>
+
+            <!-- Solicitud -->
+            <li>
+                <a th:href="@{/listar/solicitud}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-file-signature transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Solicitud</span>
+                </a>
+            </li>
+
+            <!-- Periodo Académico -->
+            <li>
+                <a th:href="@{/listar/pAcademico}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-calendar-alt transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Periodo Académico</span>
+                </a>
+            </li>
+
+            <!-- Carrera -->
+            <li>
+                <a th:href="@{/listar/carrera}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-graduation-cap transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Carrera</span>
+                </a>
+            </li>
+
+            <!-- Facultad -->
+            <li>
+                <a th:href="@{/all/facultad}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-university transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Facultad</span>
+                </a>
+            </li>
+
+            <!-- Profesor -->
+            <li>
+                <a th:href="@{/listar/profesor}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-chalkboard-teacher transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Profesor</span>
+                </a>
+            </li>
+
+            <!-- Asignatura -->
+            <li>
+                <a th:href="@{/listar/asignatura}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-book-open transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Asignatura</span>
+                </a>
+            </li>
+
+            <!-- Grupos -->
+            <li>
+                <a th:href="@{/listar/grupo}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-users transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Grupos</span>
+                </a>
+            </li>
+
+            <!-- Coordinador -->
+            <li>
+                <a th:href="@{/listar/coordinador}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-user-cog transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Coordinador</span>
+                </a>
+            </li>
+
+            <!-- Roles -->
+            <li>
+                <a th:href="@{/all/roles}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-user-tag transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Roles</span>
+                </a>
+            </li>
+
+            <!-- Usuario -->
+            <li>
+                <a th:href="@{/listar/usuario}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-user transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Usuario</span>
+                </a>
+            </li>
+
+            <!-- Ambiente -->
+            <li>
+                <a th:href="@{/listar/ambiente}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-door-open transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Ambiente</span>
+                </a>
+            </li>
+
+            <!-- Equipo de Ambiente -->
+            <li>
+                <a th:href="@{/listar/eAmbiente}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-tools transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Equipo de Ambiente</span>
+                </a>
+            </li>
+
+            <!-- Bloque Horario -->
+            <li>
+                <a th:href="@{/listar/bHorario}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-clock transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Bloque Horario</span>
+                </a>
+            </li>
+
+            <!-- Excepción de Reserva -->
+            <li>
+                <a th:href="@{/listar/excepcionReserva}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-ban transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Excepción de Reserva</span>
+                </a>
+            </li>
+
+            <!-- Planificación -->
+            <li>
+                <a th:href="@{/listar/planificacion}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-calendar-check transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Planificación</span>
+                </a>
+            </li>
+
+            <!-- Reserva de Plantilla -->
+            <li>
+                <a th:href="@{/listar/plantillas}"
+                   class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">
+                    <i class="fas fa-file-alt transform scale-150 group-hover:scale-100 transition-all duration-300"></i>
+                    <span class="hidden group-hover:block">Reserva de Plantilla</span>
+                </a>
+            </li>
+        </ul>
     </div>
+
+    <div class="main-content flex-1 transition-all duration-300 ease-in-out ml-16">
+      <!-- Header -->
+      <div class="flex-1 justify-between items-center p-4 bg-white border-b">
+        <!-- Título y Navegación -->
+        <div class="flex flex-col space-y-1">
+
+          <div>
+            <h1 class="text-xl font-semibold">Content Management</h1>
+          </div>
+<!--          <div class="flex justify-center items-center h-auto p-2 space-x-6">-->
+<!--            &lt;!&ndash; Lista de navegacion &ndash;&gt;-->
+<!--            <nav class="flex space-x-6">-->
+<!--              <ul class="flex space-x-6 text-gray-700">-->
+<!--                <li><a href="#"-->
+<!--                    class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Welcome!</a>-->
+<!--                </li>-->
+<!--                <li><a href="#"-->
+<!--                    class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">List</a>-->
+<!--                </li>-->
+<!--                <li><a href="#"-->
+<!--                    class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Calendar</a>-->
+<!--                </li>-->
+<!--                <li><a href="#"-->
+<!--                    class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Board</a>-->
+<!--                </li>-->
+<!--                <li><a href="#"-->
+<!--                    class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Gantt</a>-->
+<!--                </li>-->
+<!--                <li><a href="#"-->
+<!--                    class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">Timeline</a>-->
+<!--                </li>-->
+<!--                <li><a href="#"-->
+<!--                    class="flex items-center gap-3 px-3 py-2 rounded-md text-gray-800 hover:text-[#2172e4]">View</a>-->
+<!--                </li>-->
+<!--              </ul>-->
+<!--            </nav>-->
+<!--            &lt;!&ndash; Botones &ndash;&gt;-->
+<!--            <div class="flex space-x-6">-->
+<!--              <button class="p-2 border rounded text-gray-700 hover:text-blue-500">Automate</button>-->
+<!--              <button class="p-2 border rounded text-gray-700 hover:text-blue-500">Share</button>-->
+<!--            </div>-->
+<!--          </div>-->
+        </div>
+      </div>
+
+      <!-- Contenido principal -->
+      <div class="flex-1 p-6 bg-gray-100" th:insert="~{::contenido}"></div>
+    </div>
+
+  </div>
 </body>
 
 </html>

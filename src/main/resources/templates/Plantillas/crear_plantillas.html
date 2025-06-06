@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tittle}">Mi Página</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Iconos -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/viewstyles.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+    <div th:replace="~{fragments/board :: board}">
+        <div th:fragment="contenido">
+            <h1>Plantillas</h1>
+            <div class="bg-[#F0F2F7] min-h-screen flex">
+                <!-- Main content -->
+                <main class="flex-1 p-6 max-w-full">
+
+                    <!-- Tabs -->
+                    <nav class="flex space-x-8 border-b border-gray-300 mb-6 select-none text-xs font-semibold">
+                        <a th:href="@{/crear/plantillas}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">C
+                            R E A R</a>
+                        <a th:href="@{/listar/plantillas}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">L
+                            I S T A R</a>
+                        <a th:href="@{#}"
+                            class="text-gray-400 py-2 border-b-2 border-transparent hover:text-indigo-600 hover:border-indigo-600">E
+                            D I T A R</a>
+                    </nav>
+
+                    <h1 class="text-2xl font-bold mb-4">Crear Asignatura</h1>
+
+                    <!-- FORMULARIO PARA PLANTILLA DE RESERVA -->
+                    <form id="formularioPlantillaReserva" class="space-y-4">
+
+                        <!-- Campo: Periodo Académico -->
+                        <div>
+                            <label for="periodo" class="block text-sm font-medium text-gray-700">Periodo Académico</label>
+                            <select id="periodo" name="periodo" required
+                                    class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
+                                <!-- Opciones cargadas dinámicamente -->
+                            </select>
+                        </div>
+
+                        <!-- Campo: Día de la Semana -->
+                        <div>
+                            <label for="diaSemana" class="block text-sm font-medium text-gray-700">Día de la Semana</label>
+                            <select id="diaSemana" name="diaSemana" required
+                                    class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
+                                <option value="LUNES">LUNES</option>
+                                <option value="MARTES">MARTES</option>
+                                <option value="MIERCOLES">MIERCOLES</option>
+                                <option value="JUEVES">JUEVES</option>
+                                <option value="VIERNES">VIERNES</option>
+                                <option value="SABADO">SABADO</option>
+                                <option value="DOMINGO">DOMINGO</option>
+                            </select>
+                        </div>
+
+                        <!-- Campo: Ambiente -->
+                        <div>
+                            <label for="ambiente" class="block text-sm font-medium text-gray-700">Ambiente</label>
+                            <select id="ambiente" name="ambiente" required
+                                    class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
+                                <!-- Opciones cargadas dinámicamente -->
+                            </select>
+                        </div>
+
+                        <!-- Campo: Horario (TimeSlot) -->
+                        <div>
+                            <label for="horario" class="block text-sm font-medium text-gray-700">Horario</label>
+                            <select id="horario" name="horario" required
+                                    class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
+                                <!-- Opciones cargadas dinámicamente -->
+                            </select>
+                        </div>
+
+                        <!-- Campo: Grupo -->
+                        <div>
+                            <label for="grupo" class="block text-sm font-medium text-gray-700">Grupo</label>
+                            <select id="grupo" name="grupo" required
+                                    class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:ring focus:ring-blue-500">
+                                <!-- Opciones cargadas dinámicamente -->
+                            </select>
+                        </div>
+
+                        <!-- Botón para enviar -->
+                        <div class="flex justify-center">
+                            <button type="submit"
+                                    class="bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700">
+                                Crear Plantilla
+                            </button>
+                        </div>
+                    </form>
+                </main>
+            </div>
+
+        </div>
+    </div>
+
+    <script th:src="@{/js/script.js}" defer></script>
+    <script th:src="@{/js/plantillas/create.js}" defer></script>
+
+</body>
+
+</html>

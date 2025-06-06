@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${tittle}">Facultades</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/viewstyles.css}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+<div th:replace="~{fragments/board :: board}">
+    <div th:fragment="contenido">
+        <h1>Facultades</h1>
+        <div class="bg-[#F0F2F7] min-h-screen flex">
+            <main class="flex-1 p-6 max-w-full">
+
+                <!-- Filtros y botones -->
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6 space-y-3 sm:space-y-0">
+                    <div class="flex space-x-3">
+                        <input type="text" placeholder="Buscar facultad" aria-label="Filtro de facultades"
+                               class="border border-gray-300 rounded-md text-xs text-gray-600 px-3 py-1 focus:outline-none focus:ring-1 focus:ring-indigo-600 focus:border-indigo-600"/>
+                        <button disabled
+                                class="bg-gray-300 text-gray-400 text-xs rounded-md px-3 py-1 cursor-not-allowed select-none">
+                            SEARCH
+                        </button>
+                    </div>
+                    <div class="flex gap-3">
+                        <button id="mostrarFormularioFacultad"
+                                class="bg-indigo-600 text-white text-xs font-semibold rounded-md px-4 py-2 hover:bg-indigo-700 select-none"
+                                type="button">ADD FACULTAD</button>
+                        <button
+                                class="bg-red-600 text-white text-xs font-semibold rounded-md px-4 py-2 hover:bg-red-700 select-none"
+                                type="button">DELETE ATTRIBUTE</button>
+                    </div>
+                </div>
+
+                <!-- Tabla de Facultades -->
+                <div class="overflow-x-auto mb-6">
+                    <table class="w-full text-xs text-left text-gray-600 border-separate border-spacing-y-2">
+                        <thead>
+                        <tr class="border-b border-gray-300">
+                            <th class="py-2 font-semibold text-gray-900">CODIGO</th>
+                            <th class="py-2 font-semibold text-gray-900">NOMBRE</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tabla-facultades-body">
+                        <!-- Aquí se cargan dinámicamente las filas desde list.js -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- FORMULARIO PARA FACULTAD -->
+                <form id="formularioFacultad" class="hidden">
+                    <!-- Campo para el código -->
+                    <div class="mb-4">
+                        <label for="codigo" class="block text-sm font-medium text-gray-700">Código</label>
+                        <input type="text" id="codigo" name="codigo" required
+                               class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                    </div>
+
+                    <!-- Campo para el nombre -->
+                    <div class="mb-4">
+                        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" required
+                               class="mt-1 block w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring focus:ring-blue-500" />
+                    </div>
+                    <!-- Botón de creación -->
+                    <div class="flex justify-center">
+                        <button type="submit"
+                                class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">
+                            Crear
+                        </button>
+                    </div>
+                </form>
+            </main>
+        </div>
+    </div>
+</div>
+
+<!-- Mostrar u ocultar el formulario -->
+<script>
+    document.getElementById("mostrarFormularioFacultad").addEventListener("click", function () {
+        document.getElementById("formularioFacultad").classList.toggle("hidden");
+    });
+</script>
+
+<!-- Scripts adicionales -->
+<script th:src="@{/js/script.js}" defer></script>
+<script th:src="@{/js/facultad/create.js}" defer></script>
+<script th:src="@{/js/facultad/list.js}" defer></script>
+</body>
+</html>
