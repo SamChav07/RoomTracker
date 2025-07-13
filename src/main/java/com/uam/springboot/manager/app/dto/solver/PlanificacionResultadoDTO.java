@@ -10,11 +10,11 @@ import java.util.List;
 
 public class PlanificacionResultadoDTO {
         private List<ReservaDTO> asignadas;
-        private List<ReservaDTO> rechazadas;
+        private List<ReservaRechazadaDTO> rechazadas;
 
         public PlanificacionResultadoDTO() {}
 
-        public PlanificacionResultadoDTO(List<ReservaDTO> asignadas, List<ReservaDTO> rechazadas) {
+        public PlanificacionResultadoDTO(List<ReservaDTO> asignadas, List<ReservaRechazadaDTO> rechazadas) {
             this.asignadas = asignadas;
             this.rechazadas = rechazadas;
         }

@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>17</java.version>
+		<optaplanner.version>8.32.0.Final</optaplanner.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -37,6 +38,16 @@
 				<version>8.32.0.Final</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.optaplanner</groupId>
+				<artifactId>optaplanner-core</artifactId>
+				<version>${optaplanner.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.optaplanner</groupId>
+				<artifactId>optaplanner-explanation</artifactId>
+				<version>${optaplanner.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -57,7 +68,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.12.0</version> <!-- Usa la última versión disponible -->
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>

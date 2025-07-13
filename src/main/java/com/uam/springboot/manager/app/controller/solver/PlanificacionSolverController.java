@@ -1,11 +1,15 @@
 package com.uam.springboot.manager.app.controller.solver;
 
 import java.time.LocalDate;
+import java.util.List;
 
+import com.uam.springboot.manager.app.dto.operacion.responseDTOs.PlantillaReservaResponseDTO;
+import com.uam.springboot.manager.app.dto.solver.PlanificacionRangoDTO;
 import com.uam.springboot.manager.app.dto.solver.PlanificacionResultadoDTO;
 import com.uam.springboot.manager.app.service.impl.solver.PlanificacionSolverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +29,7 @@ public class PlanificacionSolverController {
 
     /**
      * Ejecuta la planificación para el periodo y fecha indicados.
-     *
+     * <p>
      * Ejemplo de llamada:
      * GET /api/planificacion?periodoAcademicoId=3&fecha=2025-05-02
      *
@@ -43,5 +47,33 @@ public class PlanificacionSolverController {
                 planificacionSolverService.planificarDia(periodoAcademicoId, fecha);
         return ResponseEntity.ok(resultado);
     }
+
+    @GetMapping("/rango")
+    public ResponseEntity<PlanificacionRangoDTO> planificarRango(
+            @RequestParam Long periodoAcademicoId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
+
+        PlanificacionRangoDTO dto = planificacionSolverService
+                .planificarRango(periodoAcademicoId, fechaInicio, fechaFin);
+        return ResponseEntity.ok(dto);
+    }
+
+    @PostMapping("/rango/persist")
+    public ResponseEntity<List<PlantillaReservaResponseDTO>> planificarYGuardar (
+            @RequestParam Long periodoAcademicoId,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin){
+
+        List<PlantillaReservaResponseDTO> result =
+                planificacionSolverService.planificarYRellenarPlantillas(
+                        periodoAcademicoId, fechaInicio, fechaFin);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(result);
+    }
+
 }
+
 

@@ -29,7 +29,7 @@ public class Grupo extends Identifiable {
     @NotNull
     private Integer numeroEstudiantes;
 
-    @OneToOne
+    @ManyToOne
     private Profesor profesor;
 
     @Min(1)

@@ -17,9 +17,11 @@ import org.springframework.stereotype.Service;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -112,4 +114,26 @@ public class PlanificacionService {
                 .toList();
     }
 
+    public Optional<PlantillaReservaResponseDTO> getClaseEnMomento(
+            Long periodoId,
+            Long ambienteId,
+            LocalDate fecha,
+            LocalTime hora) {
+
+        // 1) Obtiene todas las plantillas (con excepciones ya aplicadas) para ese día
+        List<PlantillaReservaResponseDTO> plan = getPlanificacionParaFecha(periodoId, fecha);
+
+        // 2) Filtra por el aula y por el bloque horario que contiene la hora
+        return plan.stream()
+                .filter(p -> p.ambiente().id().equals(ambienteId))
+                .filter(p -> {
+                    LocalTime inicio = p.timeSlot().horaInicio();
+                    LocalTime fin    = p.timeSlot().horaFin();
+                    // incluye inicio y excluye fin (o ajusta según tu regla)
+                    return !hora.isBefore(inicio) && hora.isBefore(fin);
+                })
+                .findFirst();
+    }
 }
+
+

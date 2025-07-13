@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layouts/base :: base(title=${dtoName} + ' - ' + ${pageAction})}">
+<div th:fragment="content">
+  <!-- Punto de enganche para el CRUD dinámico -->
+  <div id="crud-root"
+       th:attr="data-entity=${dtoName}"></div>
+</div>
+</html>

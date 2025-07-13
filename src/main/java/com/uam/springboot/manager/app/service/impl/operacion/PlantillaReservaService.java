@@ -36,5 +36,24 @@ public class PlantillaReservaService
                 .map(mapper::toDto)
                 .collect(Collectors.toList());
     }
+
+    public List<PlantillaReservaResponseDTO> createBatch(
+            List<PlantillaReservaRequestDTO> requests) {
+
+        // 1) Convertir cada request DTO en entidad
+        List<PlantillaReserva> entidades = requests.stream()
+                .map(mapper::toEntity)          // asume método toEntity(request)
+                .toList();
+
+        // 2) Guardar en lote
+        List<PlantillaReserva> guardadas = plantillaRepo.saveAll(entidades);
+
+        // 3) Volver a mapear a DTO de respuesta
+        return guardadas.stream()
+                .map(mapper::toDto)             // asume método toDto(entity)
+                .toList();
+    }
+
+
 }
 

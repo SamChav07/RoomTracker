@@ -1,5 +1,6 @@
 package com.uam.springboot.manager.app.dto.solicitud.requestDTOs;
 
+import com.uam.springboot.manager.app.controller.CrudMeta;
 import com.uam.springboot.manager.app.model.catalogos.DIASSEMANA;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -8,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.Set;
 
+@CrudMeta(baseUrl = "/solicitud-items")
 public record SolicitudItemRequestDTO(
         @NotNull Long solicitudId,
         @NotNull @Enumerated(EnumType.STRING) Set<DIASSEMANA> diasSemana,

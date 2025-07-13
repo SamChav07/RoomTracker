@@ -19,6 +19,7 @@ public class PlanificacionConstraintProvider implements ConstraintProvider {
                 capacidadSuficiente(factory),
                 equiposRequeridos(factory),
                 accesibilidad(factory),
+                fueraDeRango(factory),
                 maxReservasAsignadas(factory)
         };
     }
@@ -78,6 +79,19 @@ public class PlanificacionConstraintProvider implements ConstraintProvider {
                 // recompensa proporcional a la prioridad:
                 .reward(HardSoftScore.ONE_SOFT, ReservaTentativa::getPriority)
                 .asConstraint("Reservas asignadas (ponderadas)");
+    }
+
+    private static final int MAX_BLOQUE = 18;
+
+    private Constraint fueraDeRango(ConstraintFactory factory) {
+        return factory.forEach(ReservaTentativa.class)
+                .filter(r -> {
+                    if (r.getBloqueInicio() == null) return false;
+                    int fin = r.getBloqueInicio().getIndice() + r.getDuracionBloques() - 1;
+                    return fin > MAX_BLOQUE;           // ← se pasa del último bloque
+                })
+                .penalize(HardSoftScore.ONE_HARD)      // lo convierte en inviable
+                .asConstraint("Reserva fuera de rango horario");
     }
 
     static class OverlapHelper {
